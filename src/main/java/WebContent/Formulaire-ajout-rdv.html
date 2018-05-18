@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+
+
+<html>
+<head>
+
+<title>Faire une réservation</title>
+<meta name="description" content="Faire une réservation">
+
+<meta charset="UTF-8" />
+<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+	integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+	crossorigin="anonymous"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+	integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+	crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+
+
+	<section name=geolocalisation>
+			<form id="form-adresse" class="form-inline my-2 my-lg-0">
+				<input class="form-control mr-sm-2" type="search" name="ad"
+					>
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">GO</button>
+			</form>
+
+		<div id="infoposition"></div>
+		<div id="map"></div>
+		<!-- vous allez avoir besoin d'une div dans votre HTML avec une classe "map" -->
+
+	</section>
+
+
+
+
+
+	<section name=prestation>
+		<div class="card text-center">
+			<div class="card-header">
+				<b>Faire une réservation</b>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row bs-wizard" style="border-bottom: 0;">
+				<div class="form-group col-md-3">
+					<div class="col-xs-3 bs-wizard-step complete">
+						<div class="text-center bs-wizard-stepnum">1.Service</div>
+						<div class="progress bg-dark">
+							<div class="progress-bar"></div>
+						</div>
+						<a href="#" class="bs-wizard-dot"></a>
+					</div>
+				</div>
+
+				<div class="form-group col-md-3">
+					<div class="col-xs-3 bs-wizard-step complete">
+						<!-- complete -->
+						<div class="text-center bs-wizard-stepnum">2.Heure</div>
+						<div class="progress">
+							<div class="progress-bar"></div>
+						</div>
+						<a href="#" class="bs-wizard-dot"></a>
+					</div>
+				</div>
+
+				<div class="form-group col-md-3">
+					<div class="col-xs-3 bs-wizard-step active">
+						<!-- complete -->
+						<div class="text-center bs-wizard-stepnum">3.Détails</div>
+						<div class="progress">
+							<div class="progress-bar"></div>
+						</div>
+						<a href="#" class="bs-wizard-dot"></a>
+					</div>
+				</div>
+
+				<div class="form-group col-md-3">
+					<div class="col-xs-3 bs-wizard-step disabled">
+						<!-- active -->
+						<div class="text-center bs-wizard-stepnum">4.Confirmation</div>
+						<div class="progress">
+							<div class="progress-bar"></div>
+						</div>
+						<a href="#" class="bs-wizard-dot"></a>
+					</div>
+				</div>
+			</div>
+
+
+
+
+			<table class="table">
+				<thead class="thead-dark">
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">Service</th>
+						<th scope="col">Prix</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row">1</th>
+						<td>Shampooing + soin + coupe + brushing 32€</td>
+						<td>32€</td>
+					</tr>
+					<tr>
+						<th scope="row">2</th>
+						<td>Coloration + Shampooing + soin + coupe + brushing</td>
+						<td>59€</td>
+					</tr>
+					<tr>
+						<th scope="row">3</th>
+						<td>Balayage + Shampooing + soin + coupe + brushing</td>
+						<td>61€</td>
+					</tr>
+					<tr>
+						<th scope="row">4</th>
+						<td>Mèches + Shampooing + soin + coupe + brushing</td>
+						<td>71€</td>
+					</tr>
+				</tbody>
+			</table>
+			<form>
+				<table class="table">
+					<thead class="thead-dark float-top">
+						<tr>
+							<th scope="col">Choisir avec qui</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="p-0"><select class="form-control"
+								id="exampleFormControlSelect1">
+									<option>Employé 1</option>
+									<option>Employé 2</option>
+									<option>Employé 3</option>
+									<option>Employé 4</option>
+									<option>Employé 5</option>
+							</select></td>
+						</tr>
+				</table>
+			</form>
+			<div class="form-group col-md-6 m-right m-auto">
+				<button type="button"
+					class="btn  btn-lg btn-block bg-dark text-white">Envoyer</button>
+			</div>
+		</div>
+	</section>
+
+
+
+
+
+
+
+
+
+	<section name=date>
+		<div class="card text-center">
+			<div class="card-header">
+				<b>Faire une réservation</b>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row bs-wizard" style="border-bottom: 0;">
+				<div class="form-group col-md-3">
+					<div class="col-xs-3 bs-wizard-step complete">
+						<div class="text-center bs-wizard-stepnum">1.Service</div>
+						<div class="progress">
+							<div class="progress-bar"></div>
+						</div>
+						<a href="#" class="bs-wizard-dot"></a>
+					</div>
+				</div>
+
+				<div class="form-group col-md-3">
+					<div class="col-xs-3 bs-wizard-step complete">
+						<!-- complete -->
+						<div class="text-center bs-wizard-stepnum">2.Heure</div>
+						<div class="progress bg-dark">
+							<div class="progress-bar"></div>
+						</div>
+						<a href="#" class="bs-wizard-dot"></a>
+					</div>
+				</div>
+
+				<div class="form-group col-md-3">
+					<div class="col-xs-3 bs-wizard-step active">
+						<!-- complete -->
+						<div class="text-center bs-wizard-stepnum">3.Détails</div>
+						<div class="progress">
+							<div class="progress-bar"></div>
+						</div>
+						<a href="#" class="bs-wizard-dot"></a>
+					</div>
+				</div>
+
+				<div class="form-group col-md-3">
+					<div class="col-xs-3 bs-wizard-step disabled">
+						<!-- active -->
+						<div class="text-center bs-wizard-stepnum">4.Confirmation</div>
+						<div class="progress">
+							<div class="progress-bar"></div>
+						</div>
+						<a href="#" class="bs-wizard-dot"></a>
+					</div>
+				</div>
+			</div>
+			<table class="table">
+				<thead class="thead-dark float-top">
+					<tr>
+						<th scope="col">Lundi</th>
+						<th scope="col">Mardi</th>
+						<th scope="col">Mercredi</th>
+						<th scope="col">Jeudi</th>
+						<th scope="col">Vendredi</th>
+						<th scope="col">Samedi</th>
+						<th scope="col">Dimanche</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr>
+						<td><input id="Lundi_8h00" type="radio" name="heure"
+							value="Lundi_8h00" required /> 8h00</td>
+						<td><input id="Mardi_8h00" type="radio" name="heure"
+							value="Mardi_8h00" required /> 8h00</td>
+						<td><input id="Mercredi_8h00" type="radio" name="heure"
+							value="Mercredi_8h00" required /> 8h00</td>
+						<td><input id="Jeudi_8h00" type="radio" name="heure"
+							value="Jeudi_8h00" required /> 8h00</td>
+						<td><input id="Vendredi_8h00" type="radio" name="heure"
+							value="Vendredi_8h00" required />8h00</td>
+						<td><input id="Samedi_8h00" type="radio" name="heure"
+							value="Samedi_8h00" required /> 8h00</td>
+						<td><input id="Dimanche_8h00" type="radio" name="heure"
+							value="Dimanche_8h00" required /> 8h00</td>
+					</tr>
+					<tr>
+						<td><input id="Lundi_8h30" type="radio" name="heure"
+							value="Lundi_8h30" required /> 8h30</td>
+						<td><input id="Mardi_8h30" type="radio" name="heure"
+							value="Mardi_8h30" required /> 8h30</td>
+						<td><input id="Mercredi_8h30" type="radio" name="heure"
+							value="Mercredi_8h30" required /> 8h30</td>
+						<td><input id="Jeudi_8h30" type="radio" name="heure"
+							value="Jeudi_8h30" required /> 8h30</td>
+						<td><input id="Vendredi_8h30" type="radio" name="heure"
+							value="Vendredi_8h30" required /> 8h30</td>
+						<td><input id="Samedi_8h30" type="radio" name="heure"
+							value="Samedi_8h30" required /> 8h30</td>
+						<td><input id="Dimanche_8h30" type="radio" name="heure"
+							value="Dimanche_8h30" required /> 8h30</td>
+					</tr>
+					<tr>
+						<td><input id="Lundi_9h00" type="radio" name="heure"
+							value="Lundi_9h00" required /> 9h00</td>
+						<td><input id="Mardi_9h00" type="radio" name="heure"
+							value="Mardi_9h00" required /> 9h00</td>
+						<td><input id="Mercredi_9h00" type="radio" name="heure"
+							value="Mercredi_9h00" required /> 9h00</td>
+						<td><input id="Jeudi_9h00" type="radio" name="heure"
+							value="Jeudi_9h00" required /> 9h00</td>
+						<td><input id="Vendredi_9h00" type="radio" name="heure"
+							value="Vendredi_9h00" required /> 9h00</td>
+						<td><input id="Samedi_9h00" type="radio" name="heure"
+							value="Samedi_9h00" required /> 9h00</td>
+						<td><input id="Dimanche_9h00" type="radio" name="heure"
+							value="Dimanche_9h00" required /> 9h00</td>
+					</tr>
+					<tr>
+						<td><input id="Lundi_9h30" type="radio" name="heure"
+							value="Lundi_9h30" required /> 9h30</td>
+						<td><input id="Mardi_9h30" type="radio" name="heure"
+							value="Mardi_9h00" required /> 9h30</td>
+						<td><input id="Mercredi_9h30" type="radio" name="heure"
+							value="Mercredi_9h30" required /> 9h30</td>
+						<td><input id="Jeudi_9h30" type="radio" name="heure"
+							value="Jeudi_9h30" required /> 9h30</td>
+						<td><input id="Vendredi_9h30" type="radio" name="heure"
+							value="Vendredi_9h30" required /> 9h30</td>
+						<td><input id="Samedi_9h30" type="radio" name="heure"
+							value="Samedi_9h30" required /> 9h30</td>
+						<td><input id="Dimanche_9h30" type="radio" name="heure"
+							value="Dimanche_9h30" required /> 9h30</td>
+					</tr>
+					<tr>
+						<td><input id="Lundi_10h00" type="radio" name="heure"
+							value="Lundi_10h00" required /> 9h00</td>
+						<td><input id="Mardi_10h00" type="radio" name="heure"
+							value="Mardi_10h00" required /> 9h00</td>
+						<td><input id="Mercredi_10h00" type="radio" name="heure"
+							value="Mercredi_10h00" required /> 9h00</td>
+						<td><input id="Jeudi_10h00" type="radio" name="heure"
+							value="Jeudi_10h00" required /> 9h00</td>
+						<td><input id="Vendredi_10h00" type="radio" name="heure"
+							value="Vendredi_10h00" required /> 9h00</td>
+						<td><input id="Samedi_10h00" type="radio" name="heure"
+							value="Samedi_10h00" required /> 9h00</td>
+						<td><input id="Dimanche_10h00" type="radio" name="heure"
+							value="Dimanche_10h00" required /> 9h00</td>
+					</tr>
+					<tr>
+						<td>10h30</td>
+						<td>10h30</td>
+						<td>10h30</td>
+						<td>10h30</td>
+						<td>10h30</td>
+						<td>10h30</td>
+						<td>10h30</td>
+					</tr>
+					<tr>
+						<td>11h00</td>
+						<td>11h00</td>
+						<td>11h00</td>
+						<td>11h00</td>
+						<td>11h00</td>
+						<td>11h00</td>
+						<td>11h00</td>
+					</tr>
+					<tr>
+						<td>11h30</td>
+						<td>11h30</td>
+						<td>11h30</td>
+						<td>11h30</td>
+						<td>11h30</td>
+						<td>11h30</td>
+						<td>11h30</td>
+					</tr>
+					<tr>
+						<td>14h00</td>
+						<td>14h00</td>
+						<td>14h00</td>
+						<td>14h00</td>
+						<td>14h00</td>
+						<td>14h00</td>
+						<td>14h00</td>
+					</tr>
+					<tr>
+						<td>14h30</td>
+						<td>14h30</td>
+						<td>14h30</td>
+						<td>14h30</td>
+						<td>14h30</td>
+						<td>14h30</td>
+						<td>14h30</td>
+					</tr>
+					<tr>
+						<td>15h00</td>
+						<td>15h00</td>
+						<td>15h00</td>
+						<td>15h00</td>
+						<td>15h00</td>
+						<td>15h00</td>
+						<td>15h00</td>
+					</tr>
+					<tr>
+						<td>15h30</td>
+						<td>15h30</td>
+						<td>15h30</td>
+						<td>15h30</td>
+						<td>15h30</td>
+						<td>15h30</td>
+						<td>15h30</td>
+					</tr>
+					<tr>
+						<td>16h00</td>
+						<td>16h00</td>
+						<td>16h00</td>
+						<td>16h00</td>
+						<td>16h00</td>
+						<td>16h00</td>
+						<td>16h00</td>
+					</tr>
+					<tr>
+						<td>16h30</td>
+						<td>16h30</td>
+						<td>16h30</td>
+						<td>16h30</td>
+						<td>16h30</td>
+						<td>16h30</td>
+						<td>16h30</td>
+					</tr>
+					<tr>
+						<td>17h00</td>
+						<td>17h00</td>
+						<td>17h00</td>
+						<td>17h00</td>
+						<td>17h00</td>
+						<td>17h00</td>
+						<td>17h00</td>
+					</tr>
+					<tr>
+						<td>17h30</td>
+						<td>17h30</td>
+						<td>17h30</td>
+						<td>17h30</td>
+						<td>17h30</td>
+						<td>17h30</td>
+						<td>17h30</td>
+					</tr>
+					<tr>
+						<td>18h00</td>
+						<td>18h00</td>
+						<td>18h00</td>
+						<td>18h00</td>
+						<td>18h00</td>
+						<td>18h00</td>
+						<td>18h00</td>
+					</tr>
+					<tr>
+						<td>18h30</td>
+						<td>18h30</td>
+						<td>18h30</td>
+						<td>18h30</td>
+						<td>18h30</td>
+						<td>18h30</td>
+						<td>18h30</td>
+					</tr>
+					<tr>
+						<td>19h00</td>
+						<td>19h00</td>
+						<td>19h00</td>
+						<td>19h00</td>
+						<td>19h00</td>
+						<td>19h00</td>
+						<td>19h00</td>
+					</tr>
+					<tr>
+						<td>19h30</td>
+						<td>19h30</td>
+						<td>19h30</td>
+						<td>19h30</td>
+						<td>19h30</td>
+						<td>19h30</td>
+						<td>19h30</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+
+
+
+
+
+
+
+
+
+	<footer id="ad"> « Copyright &copy; e-shop.fr » </footer>
+
+
+
+
+
+
+	<section name=script>
+		<script
+			src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script type="text/javascript"
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByEdIlRK8B123Daha6RtqmA7UQ0hCCPVE&libraries=places"></script>
+		<script src="JavaScriptP.js"></script>
+	</section>
+
+
+
+
+</body>
+</html>
