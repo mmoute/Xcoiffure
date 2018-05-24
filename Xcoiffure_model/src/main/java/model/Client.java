@@ -47,7 +47,7 @@ public class Client {
 	@NotNull
 	private Date naissance;
 	
-	@OneToMany(mappedBy="Client")
+	@OneToMany(mappedBy="client")
 	private List<Rdv> rdvs;
 	
 	@ManyToMany  (cascade= {CascadeType.REMOVE , CascadeType.REFRESH })

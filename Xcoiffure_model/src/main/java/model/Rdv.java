@@ -24,11 +24,11 @@ public class Rdv {
 	@Column(name="RDV_ID")
 	private int id;
 	
-	@Column(name="EMP_INDISPONIBILITE", nullable = false)
+	@Column(name="RDV_VALIDE", nullable = false)
 	@NotEmpty
 	private boolean valide;
 	
-	@Column(name="CLI_DATE_NAISSANCE", nullable=true)
+	@Column(name="RDV_DATE", nullable=true)
 	@Temporal(TemporalType.DATE)
 	@NotNull
 	private Date date;

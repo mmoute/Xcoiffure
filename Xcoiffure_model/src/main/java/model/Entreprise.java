@@ -37,7 +37,7 @@ public class Entreprise {
 	@Size(max=50)
 	private String nom_gerant;
 	
-	@OneToMany(mappedBy="Entreprise")
+	@OneToMany(mappedBy="entreprise")
 	private List<Service> services;
 	
 	@ManyToMany  (cascade= {CascadeType.REMOVE , CascadeType.REFRESH })
