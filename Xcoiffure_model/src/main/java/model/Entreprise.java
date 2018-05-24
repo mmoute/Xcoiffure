@@ -43,7 +43,7 @@ public class Entreprise {
 	@ManyToMany  (cascade= {CascadeType.REMOVE , CascadeType.REFRESH })
 	@JoinTable(
 	name="adrfournisseur",
-	joinColumns=@JoinColumn(name="ADRFOURNISSEUR_FOU_ID", referencedColumnName="FOU_ID"),
+	joinColumns=@JoinColumn(name="ADRFOURNISSEUR_ENT_ID", referencedColumnName="ENT_ID"),
 	inverseJoinColumns=@JoinColumn(name="ADRFOURNISSEUR_ADR_ID", referencedColumnName="ADR_ID"))
 	private List<Adresse> fournisseurAssocies;
 	
