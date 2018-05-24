@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -44,7 +45,10 @@ public class Client {
 	@Column(name="CLI_DATE_NAISSANCE", nullable=true)
 	@Temporal(TemporalType.DATE)
 	@NotNull
-	private String naissance;
+	private Date naissance;
+	
+	@OneToMany(mappedBy="Client")
+	private List<Rdv> rdvs;
 	
 	@ManyToMany  (cascade= {CascadeType.REMOVE , CascadeType.REFRESH })
 	@JoinTable(
@@ -83,10 +87,10 @@ public class Client {
 	}
 
 	
-	public String getNaissance() {
+	public Date getNaissance() {
 		return naissance;
 	}
-	public void setNaissance(String naissance) {
+	public void setNaissance(Date naissance) {
 		this.naissance = naissance;
 	}
 
