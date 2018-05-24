@@ -1,36 +1,57 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@Table (name="rdv")
 public class Rdv {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="RDV_ID")
 	private int id;
+	
+	@Column(name="EMP_INDISPONIBILITE", nullable = false)
+	@NotEmpty
 	private boolean valide;
+	
+	@Column(name="CLI_DATE_NAISSANCE", nullable=true)
+	@Temporal(TemporalType.DATE)
+	@NotNull
 	private Date date;
-	private Client client = new Client();
-	private Service service = new Service();
-	private Employes employes = new Employes();
+		
+	@ManyToOne
+	@JoinColumn(name="RDV_CLI_ID")
+	private Client client;
+
+	@ManyToOne
+	@JoinColumn(name="RDV_SER_ID")
+	private Service service;
 	
-
-	
-	
-
-	public Rdv() {
-}
-
-
-
+	@ManyToOne
+	@JoinColumn(name="RDV_EMP_ID")
+	private Employes employes;
 
 	public int getId() {
 		return id;
 	}
 
-	
 	public void setId(int id) {
 		this.id = id;
 	}
-
 
 	public boolean isValide() {
 		return valide;
@@ -40,7 +61,6 @@ public class Rdv {
 		this.valide = valide;
 	}
 
-
 	public Date getDate() {
 		return date;
 	}
@@ -49,26 +69,21 @@ public class Rdv {
 		this.date = date;
 	}
 
-
 	public Client getClient() {
 		return client;
 	}
-
 
 	public void setClient(Client client) {
 		this.client = client;
 	}
 
-
 	public Service getService() {
 		return service;
 	}
 
-
 	public void setService(Service service) {
 		this.service = service;
 	}
-
 
 	public Employes getEmployes() {
 		return employes;
@@ -78,7 +93,10 @@ public class Rdv {
 		this.employes = employes;
 	}
 
-
+	
+	
+	public Rdv() {
+}
 
 
 
