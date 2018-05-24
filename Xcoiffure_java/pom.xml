@@ -3,4 +3,21 @@
   <groupId>Xcoiffure</groupId>
   <artifactId>Xcoiffure_java</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <dependencies>
+  	<dependency>
+  		<groupId>Xcoiffure</groupId>
+  		<artifactId>Xcoiffure_model</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  	<dependency>
+   		<groupId>mysql</groupId>
+    	<artifactId>mysql-connector-java</artifactId>
+    	<version>5.1.40</version>
+	</dependency>
+	<dependency>
+   		<groupId>org.hibernate</groupId>
+    	<artifactId>hibernate-ehcache</artifactId>
+    	<version>5.2.12.Final</version>
+	</dependency>	
+  </dependencies>
 </project>
