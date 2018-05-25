@@ -4,10 +4,15 @@ package Xcoiffure_Principal;
 import java.text.DateFormat;
 import java.text.Format;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
+import com.sopra.modele1.Client;
+
+import DAO.DAO_Adresse;
 import DAO.DAO_Client;
+import DAO.IDAO_Adresse;
 import DAO.IDAO_Client;
 import exceptions.NotFoundException;
 import model.*;
@@ -107,6 +112,8 @@ public class Principale {
 		System.out.println("5 = Modifier");
 		int choix = sc.nextInt();
 		
+		
+		IDAO_Adresse daoadresse = new DAO_Adresse();
 		IDAO_Client daoclient = new DAO_Client();
 				
 		switch (choix)
@@ -118,6 +125,17 @@ public class Principale {
 				break;
 			case 2:
 				Client C2 = new Client();
+				Adresse A2 = new Adresse();
+				
+				System.out.println("Saisir votre rue");
+				A2.setNomRue(sc.next());
+				
+				System.out.println("Saisir votre code postal");
+				A2.setCodePostal(sc.next());
+				
+				System.out.println("Saisir votre ville");
+				A2.setVille(sc.next());
+				
 				
 				System.out.println("Saisir votre prenom");
 				C2.setPrenom(sc.next());
@@ -125,8 +143,7 @@ public class Principale {
 				System.out.println("Saisir votre nom");
 				C2.setNom(sc.next());
 				
-				
-								
+												
 		        DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 		        Format formatter2 = new SimpleDateFormat("yyyy-MM-dd");
 		        
@@ -150,17 +167,15 @@ public class Principale {
 		        	sc.next();
 		        	System.out.println("Erreur de saisie");
 		        }
+		        
+		        
+		        C2.setClientAssocies(new ArrayList <Adresse>());
+		        
 		        }
+		         
 		        
-		        
-				System.out.println("Saisir votre rue");
-				C2.getClientAdresses();(sc.next());
+
 				
-				System.out.println("Saisir votre code postal");
-				C2.getAdresse().setCodePostal(sc.next());
-				
-				System.out.println("Saisir votre ville");
-				C2.getAdresse().setVille(sc.next());
 				
 				
 				//SAUVEGARDE DU NOUVEAU CHAT

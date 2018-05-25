@@ -62,7 +62,6 @@ public class Client {
 	return this.prenom + " " + this.nom;
 	}
 
-	
 	public int getId() {
 		return id;
 	}
@@ -70,7 +69,6 @@ public class Client {
 		this.id = id;
 	}
 
-	
 	public String getNom() {
 		return nom;
 	}
@@ -78,7 +76,6 @@ public class Client {
 		this.nom = nom;
 	}
 
-	
 	public String getPrenom() {
 		return prenom;
 	}
@@ -86,7 +83,6 @@ public class Client {
 		this.prenom = prenom;
 	}
 
-	
 	public Date getNaissance() {
 		return naissance;
 	}
@@ -94,15 +90,20 @@ public class Client {
 		this.naissance = naissance;
 	}
 
-	
-	public List<Adresse> getClientAdresses() {
-		return clientAssocies;
+	public List<Rdv> getRdvs() {
+		return rdvs;
 	}
-	public void setClientAdresses(List<Adresse> clientAdresses) {
-		this.clientAssocies = clientAdresses;
+	public void setRdvs(List<Rdv> rdvs) {
+		this.rdvs = rdvs;
 	}
 
-	
+	public List<Adresse> getClientAssocies() {
+		return clientAssocies;
+	}
+	public void setClientAssocies(List<Adresse> clientAssocies) {
+		this.clientAssocies = clientAssocies;
+	}
+
 	public Client() {
 }
 	
