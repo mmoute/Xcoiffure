@@ -1,18 +1,18 @@
 package Xcoiffure_Principal;
 
+
 import java.text.DateFormat;
 import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
-import com.sopra.classe.Client;
-import com.sopra.classe.Rdv;
 
-import DAO.DAOClient;
-import DAO.DAOClientSQL;
-import DAO.DAORdv;
-import DAO.DAORdvSQL;
+import DAO.DAO_Client;
+import DAO.IDAO_Client;
 import exceptions.NotFoundException;
+import model.*;
+
+
 
 public class Principale {
 
@@ -23,9 +23,14 @@ public class Principale {
 		Scanner sc = new Scanner(System.in);
 		
 		
+		/*
+		//RDV
 		System.out.println("Saisir nombre correspondant à l'operation :");
-		System.out.println("1 = Lister RDV");
-		System.out.println("2 = Ajouter RDV");
+		System.out.println("1 = Lister");
+		System.out.println("2 = Ajouter");
+		System.out.println("3 = Supprimer");
+		System.out.println("4 = Trouver");
+		System.out.println("5 = Modifier");
 		int choix0 = sc.nextInt();
 		
 		DAORdv dao = new DAORdvSQL();
@@ -68,6 +73,15 @@ public class Principale {
 		        	sc.next();
 		        	System.out.println("Erreur de saisie");
 		        }
+		        
+		        case 3:
+					break;
+					
+		        case 4:
+					break;
+					
+		        case 5:
+					break;
 		        }
 		        
 		
@@ -81,10 +95,10 @@ public class Principale {
 				
 		}
 		
+		*/
 		
 		
-		
-						
+		//CLIENT				
 		System.out.println("Saisir nombre correspondant à l'operation :");
 		System.out.println("1 = Lister");
 		System.out.println("2 = Ajouter");
@@ -93,12 +107,12 @@ public class Principale {
 		System.out.println("5 = Modifier");
 		int choix = sc.nextInt();
 		
-		DAOClient dao = new DAOClientSQL();
+		IDAO_Client daoclient = new DAO_Client();
 				
 		switch (choix)
 		{
 			case 1:
-				for (Client C1 : dao.findAll()) {
+				for (Client C1 : daoclient.findAll()) {
 					System.out.println(C1);
 				}
 				break;
@@ -140,7 +154,7 @@ public class Principale {
 		        
 		        
 				System.out.println("Saisir votre rue");
-				C2.getAdresse().setNomRue(sc.next());
+				C2.getClientAdresses();(sc.next());
 				
 				System.out.println("Saisir votre code postal");
 				C2.getAdresse().setCodePostal(sc.next());
