@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 
 import exceptions.NotFoundException;
 import model.Rdv;
@@ -58,5 +59,9 @@ public class DAO_Rdv implements IDAO_Rdv {
 		return this.em.createQuery("select r from Rdv r", Rdv.class).getResultList();
 	}
 
-
+	public List<Rdv> FindAllContainsNom(String nom) {
+		Query myQuery = em.createQuery("from rdv r left join rdv.client c where c.nom like :Nom", Rdv.class);
+		myQuery.setParameter("Nom", "%" + nom + "%");
+		return myQuery.getResultList();
+	}
 }

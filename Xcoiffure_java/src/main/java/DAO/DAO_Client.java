@@ -54,9 +54,9 @@ public class DAO_Client implements IDAO_Client {
 	}
 	
 	public Client findByName(String nom) throws NotFoundException  {
-		Query myQuery = this.em.createQuery("from client c where c.nom = :saisienom", Client.class);
+		Query myQuery = this.em.createQuery("from Client c where c.nom = :saisienom", Client.class);
 		myQuery.setParameter("saisienom", nom);
-		return myQuery.getSingleResult();
+		return (Client) myQuery.getSingleResult();
 	}
 
 	

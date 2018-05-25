@@ -6,13 +6,16 @@ import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 
 
 import DAO.DAO_Adresse;
 import DAO.DAO_Client;
+import DAO.DAO_Rdv;
 import DAO.IDAO_Adresse;
 import DAO.IDAO_Client;
+import DAO.IDAO_Rdv;
 import exceptions.NotFoundException;
 import model.*;
 
@@ -108,11 +111,13 @@ public class Principale {
 		System.out.println("2 = Ajouter");
 		System.out.println("3 = Supprimer");
 		System.out.println("4 = Trouver");
+		System.out.println("5 = Récuperer les réservations d'un client");
 		int choix = sc.nextInt();
 		
 		
 		IDAO_Adresse daoadresse = new DAO_Adresse();
 		IDAO_Client daoclient = new DAO_Client();
+		IDAO_Rdv daordv = new DAO_Rdv();
 				
 		switch (choix)
 		{
@@ -213,6 +218,19 @@ public class Principale {
 		            ex.printStackTrace();
 		        }
 				break;
+				
+			case 5:
+				
+				{
+		            System.out.println("Saisir le nom du Client dont vous voulez afficher les réservations :");
+		            String nom = sc.next();
+		            List<Rdv> R5 = daordv.FindAllContainsNom(nom);
+		            
+		            System.out.println("Le client à été trouvé !");
+		            System.out.println(R5);
+		        }
+		        
+		   		break;	
 
 				default:
 				System.out.println("Erreur dans la saisie");
