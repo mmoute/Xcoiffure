@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
+import exceptions.NotFoundException;
 import model.Categorie;
 
 public class DAO_Categorie implements IDAO_Categorie {
@@ -28,7 +29,7 @@ public class DAO_Categorie implements IDAO_Categorie {
 	}
 
 	
-	public boolean delete(Categorie obj) {
+	public boolean delete(Categorie obj) throws NotFoundException {
 		EntityTransaction tx = this.em.getTransaction();
 
 		try {

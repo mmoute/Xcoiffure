@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
+import exceptions.NotFoundException;
 import model.Service;
 
 public class DAO_Service implements IDAO_Service {
@@ -28,7 +29,7 @@ public class DAO_Service implements IDAO_Service {
 	}
 
 	
-	public boolean delete(Service obj) {
+	public boolean delete(Service obj) throws NotFoundException {
 		EntityTransaction tx = this.em.getTransaction();
 
 		try {

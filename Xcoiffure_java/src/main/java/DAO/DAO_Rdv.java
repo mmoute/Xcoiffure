@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
+import exceptions.NotFoundException;
 import model.Rdv;
 
 public class DAO_Rdv implements IDAO_Rdv {
@@ -29,7 +30,7 @@ public class DAO_Rdv implements IDAO_Rdv {
 	}
 
 	
-	public boolean delete(Rdv obj) {
+	public boolean delete(Rdv obj) throws NotFoundException {
 		EntityTransaction tx = this.em.getTransaction();
 
 		try {

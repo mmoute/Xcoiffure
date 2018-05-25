@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
-import com.sopra.modele1.Client;
 
 import DAO.DAO_Adresse;
 import DAO.DAO_Client;
@@ -109,7 +108,6 @@ public class Principale {
 		System.out.println("2 = Ajouter");
 		System.out.println("3 = Supprimer");
 		System.out.println("4 = Trouver");
-		System.out.println("5 = Modifier");
 		int choix = sc.nextInt();
 		
 		
@@ -136,52 +134,35 @@ public class Principale {
 				System.out.println("Saisir votre ville");
 				A2.setVille(sc.next());
 				
-				
+				daoadresse.save(A2);
+				 
+				 
 				System.out.println("Saisir votre prenom");
 				C2.setPrenom(sc.next());
 				
 				System.out.println("Saisir votre nom");
 				C2.setNom(sc.next());
 				
-												
-		        DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-		        Format formatter2 = new SimpleDateFormat("yyyy-MM-dd");
-		        
-		        boolean saisie1 = false;
-		        
-		        while (saisie1 == false) {        
-		        try 
-		        {		        
-		        	System.out.println("Saisir votre date de naissance => dd/MM/yyyy :");
-		            Date date = formatter.parse(sc.next());
-		            System.out.println("La date = " + date);
-		            
-		            System.out.println("La date = " + formatter2.format(date));
-		            C2.setNaissance(formatter2.format(date));
-		            saisie1 = true;
-		        }
-		        
-		        catch (Exception ex) 
-		        {
-		        	ex.printStackTrace();
-		        	sc.next();
-		        	System.out.println("Erreur de saisie");
-		        }
-		        
+				System.out.println("Saisir votre date de naissance dd-MM-yyyy");
+				DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+				try {
+					C2.setNaissance(formatter.parse(sc.next()));
+
+				} 
+				catch (Exception ex) {
+					System.out.println("erreur au niveau de la création de la date de naissance du client");
+					ex.printStackTrace();
+				}
+
+		        daoclient.save(C2);
+		       
 		        
 		        C2.setClientAssocies(new ArrayList <Adresse>());
+		        C2.getClientAssocies().add(A2);
 		        
-		        }
-		         
-		        
+		       
+		        daoclient.save(C2);
 
-				
-				
-				
-				//SAUVEGARDE DU NOUVEAU CHAT
-				dao.save(C2);
-				
-				
 				System.out.println("Ajouter");
 				break;
 				
@@ -197,12 +178,14 @@ public class Principale {
 		        {
 		            System.out.println("Saisir le nom du Client supprimer :");
 		            String nom = sc.next();
-		            Client monClient = dao.find(nom);
+		            Client C3 = daoclient.findByName(nom);
 		            
-		          dao.delete(monClient);
+		            
+		           daoclient.delete(C3); 
+		     
 		            
 		            System.out.println("Le client à été supprimé !");
-		            System.out.println(monClient);
+		            System.out.println(C3);
 		        }
 		        
 		        catch (NotFoundException ex) 
@@ -218,10 +201,10 @@ public class Principale {
 		        {
 		            System.out.println("Saisir le nom du Client recherché :");
 		            String nom = sc.next();
-		            Client monClient = dao.find(nom);
+		            Client C4 = daoclient.findByName(nom);
 		            
 		            System.out.println("Le client à été trouvé !");
-		            System.out.println(monClient);
+		            System.out.println(C4);
 		        }
 		        
 		        catch (NotFoundException ex) 
@@ -230,86 +213,9 @@ public class Principale {
 		            ex.printStackTrace();
 		        }
 				break;
-				
-			case 5:
-				try 
-		        {
-		            System.out.println("Saisir le nom du Client à modifier :");
-		            String nom = sc.next();
-		            Client monClient = dao.find(nom);
-		            
-		            System.out.println("Saisir les modification !");
-		            
-		            System.out.println("Saisir votre prenom");
-		            monClient.setPrenom(sc.next());
-					
-					System.out.println("Saisir votre nom");
-					monClient.setNom(sc.next());
-					
-					
-									
-			        DateFormat formatter3 = new SimpleDateFormat("dd/MM/yyyy");
-			        Format formatter4 = new SimpleDateFormat("yyyy-MM-dd");
-			        
-			        boolean saisie2 = false;
-			        
-			        while (saisie2 == false) {        
-			        try 
-			        {		        
-			        	System.out.println("Saisir votre date de naissance => dd/MM/yyyy :");
-			            Date date = formatter3.parse(sc.next());
-			            System.out.println("La date = " + date);
-			            
-			            System.out.println("La date = " + formatter4.format(date));
-			            monClient.setNaissance(formatter4.format(date));
-			            saisie2 = true;
-			        }
-			        
-			        catch (Exception ex) 
-			        {
-			        	ex.printStackTrace();
-			        	sc.next();
-			        	System.out.println("Erreur de saisie");
-			        }
-			        }
-			        
-			        
-					System.out.println("Saisir votre rue");
-					monClient.getAdresse().setNomRue(sc.next());
-					
-					System.out.println("Saisir votre code postal");
-					monClient.getAdresse().setCodePostal(sc.next());
-					
-					System.out.println("Saisir votre ville");
-					monClient.getAdresse().setVille(sc.next());
-					
-					
-					//SAUVEGARDE DU NOUVEAU CHAT
-					dao.modifier(monClient);
-					
-					
-					System.out.println("Modifié");
-					break;
-		            
-		            
-		            
-		            
-		
-		        }
-		        
-		        catch (NotFoundException ex) 
-		        {
-		            System.out.println("Le client n'existe pas");
-		            ex.printStackTrace();
-		        }
-				break;
-				
-				
+
 				default:
 				System.out.println("Erreur dans la saisie");
-				
-				
-	
 
 		}
 			

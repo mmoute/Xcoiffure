@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
+import exceptions.NotFoundException;
 import model.Employes;
 
 public class DAO_Employes implements IDAO_Employes {
@@ -28,7 +29,7 @@ public class DAO_Employes implements IDAO_Employes {
 	}
 
 	
-	public boolean delete(Employes obj) {
+	public boolean delete(Employes obj) throws NotFoundException {
 		EntityTransaction tx = this.em.getTransaction();
 
 		try {
