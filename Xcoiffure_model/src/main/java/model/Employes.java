@@ -44,38 +44,57 @@ public class Employes {
 	@OneToMany(mappedBy="employes")
 	private List<Rdv> Rdvs;
 	
+	
+	
+	
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getNom() {
 		return nom;
 	}
+
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+
 	public String getPrenom() {
 		return prenom;
 	}
+
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
+
 	public boolean isIndisponibilite() {
 		return indisponibilite;
 	}
+
 	public void setIndisponibilite(boolean indisponibilite) {
 		this.indisponibilite = indisponibilite;
 	}
+
+	public Entreprise getEntreprise() {
+		return entreprise;
+	}
+
+	public void setEntreprise(Entreprise entreprise) {
+		this.entreprise = entreprise;
+	}
+
 	public List<Rdv> getRdvs() {
 		return Rdvs;
 	}
+
 	public void setRdvs(List<Rdv> rdvs) {
 		Rdvs = rdvs;
 	}
-	
-	
+
 	public Employes() {
 }
 	

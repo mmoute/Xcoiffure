@@ -49,11 +49,13 @@ public class Entreprise {
 	joinColumns=@JoinColumn(name="ADRFOURNISSEUR_ENT_ID", referencedColumnName="ENT_ID"),
 	inverseJoinColumns=@JoinColumn(name="ADRFOURNISSEUR_ADR_ID", referencedColumnName="ADR_ID"))
 	private List<Adresse> fournisseurAssocies;
-	
 
+	
+	
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -61,6 +63,7 @@ public class Entreprise {
 	public String getNom_societe() {
 		return nom_societe;
 	}
+
 	public void setNom_societe(String nom_societe) {
 		this.nom_societe = nom_societe;
 	}
@@ -68,6 +71,7 @@ public class Entreprise {
 	public String getNom_gerant() {
 		return nom_gerant;
 	}
+
 	public void setNom_gerant(String nom_gerant) {
 		this.nom_gerant = nom_gerant;
 	}
@@ -75,15 +79,25 @@ public class Entreprise {
 	public List<Service> getServices() {
 		return services;
 	}
+
 	public void setServices(List<Service> services) {
 		this.services = services;
 	}
 
-	public List<Adresse> getFournisseurAdresses() {
+	public List<Employes> getEmployes() {
+		return employes;
+	}
+
+	public void setEmployes(List<Employes> employes) {
+		this.employes = employes;
+	}
+
+	public List<Adresse> getFournisseurAssocies() {
 		return fournisseurAssocies;
 	}
-	public void setFournisseurAdresses(List<Adresse> fournisseurAdresses) {
-		this.fournisseurAssocies = fournisseurAdresses;
+
+	public void setFournisseurAssocies(List<Adresse> fournisseurAssocies) {
+		this.fournisseurAssocies = fournisseurAssocies;
 	}
 
 	public Entreprise() {
