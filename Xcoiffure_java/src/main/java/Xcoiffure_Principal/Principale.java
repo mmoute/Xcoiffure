@@ -51,69 +51,48 @@ public class Principale {
 					System.out.println(R1);
 				}
 				break;
+				
 			case 2:
 				Rdv R2 = new Rdv();
 				
+				System.out.println("Veuillez saisir le nom du client");
 				R2.setClient(sc.next());
-				categorie
-				entreprise
-				R2.setService(sc.next());
-				R2.setEmployes(sc.next());
+				R2.setCategorie(Ca1);
+				R2.setEntreprise(En1);
+				R2.setService(S1);
+				R2.setEmployes(En1);
 				R2.setValide(valide);
 				R2.setDate(sc.next());
 
-			
 				
-				System.out.println("Saisir votre prenom");
-				Prenom(sc.next());
-				
-				System.out.println("Saisir votre nom");
-				C2.setNom(sc.next());
-				
-				System.out.println("Saisir votre date de naissance dd-MM-yyyy");
-				DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-				try {
-					C2.setNaissance(formatter.parse(sc.next()));
-
-				} 
-				catch (Exception ex) {
-					System.out.println("erreur au niveau de la création de la date de naissance du client");
-					ex.printStackTrace();
-				}
-
-		        daoclient.save(C2);
+		        daordv.save(R2);
 		       
+		        System.out.println("Le Rendez-vous à bien été pris en compte !");
+				
+		        break;
+				
 		        
-		        C2.setClientAssocies(new ArrayList <Adresse>());
-		        C2.getClientAssocies().add(A2);
-		        
-		       
-		        daoclient.save(C2);
-
-				System.out.println("Ajouter");
-				break;
-				
-				
-				
 			case 3:
-								
+						
+				System.out.println("Saisir le nom du Client pour supprimer son rendez-vous :");
+	            String nom = sc.next();
+					
 				try 
 		        {
-		            System.out.println("Saisir le nom du Client supprimer :");
-		            String nom = sc.next();
+		            
 		            Client C3 = daoclient.findByName(nom);
 		            
 		            
-		           daoclient.delete(C3); 
+		            daoclient.delete(C3); 
 		     
 		            
-		            System.out.println("Le client à été supprimé !");
-		            System.out.println(C3);
+		            System.out.println("Le rendez vous du client " + nom + " à été supprimé !");
+		            
 		        }
 		        
 		        catch (NotFoundException ex) 
 		        {
-		            System.out.println("Le client n'existe pas");
+		            System.out.println("Le rendez-vous ne peut pas être supprimer car le client " + nom + " n'existe pas");
 		            ex.printStackTrace();
 		        }
 				break;
@@ -163,20 +142,19 @@ public class Principale {
 		System.out.println("3 = Supprimer");
 		System.out.println("4 = Trouver");
 		System.out.println("5 = Récuperer les réservations d'un client");
-		int choix = sc.nextInt();
+		int choix2 = sc.nextInt();
 		
 		
-		IDAO_Adresse daoadresse = new DAO_Adresse();
-		IDAO_Client daoclient = new DAO_Client();
-		IDAO_Rdv daordv = new DAO_Rdv();
+		
 				
-		switch (choix)
+		switch (choix2)
 		{
 			case 1:
 				for (Client C1 : daoclient.findAll()) {
 					System.out.println(C1);
 				}
 				break;
+				
 			case 2:
 				Client C2 = new Client();
 				Adresse A2 = new Adresse();
