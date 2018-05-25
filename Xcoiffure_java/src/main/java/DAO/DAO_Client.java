@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 
 import exceptions.NotFoundException;
 import model.Client;
@@ -53,7 +54,9 @@ public class DAO_Client implements IDAO_Client {
 	}
 	
 	public Client findByName(String nom) throws NotFoundException  {
-		return this.em.find(Client.class, nom);
+		Query myQuery = this.em.createQuery("from client c where c.nom = :saisienom", Client.class);
+		myQuery.setParameter("saisienom", nom);
+		return myQuery.getSingleResult();
 	}
 
 	
