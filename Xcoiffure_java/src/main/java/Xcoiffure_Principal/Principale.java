@@ -12,10 +12,14 @@ import java.util.Scanner;
 
 import DAO.DAO_Adresse;
 import DAO.DAO_Client;
+import DAO.DAO_Employes;
 import DAO.DAO_Rdv;
+import DAO.DAO_Service;
 import DAO.IDAO_Adresse;
 import DAO.IDAO_Client;
+import DAO.IDAO_Employes;
 import DAO.IDAO_Rdv;
+import DAO.IDAO_Service;
 import exceptions.NotFoundException;
 import model.*;
 
@@ -23,7 +27,7 @@ import model.*;
 
 public class Principale {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws NotFoundException {
 		
 		
 		Scanner sc = new Scanner(System.in);
@@ -42,6 +46,8 @@ public class Principale {
 		
 		IDAO_Adresse daoadresse = new DAO_Adresse();
 		IDAO_Client daoclient = new DAO_Client();
+		IDAO_Employes daoemployes = new DAO_Employes();
+		IDAO_Service daoservice = new DAO_Service();
 		IDAO_Rdv daordv = new DAO_Rdv();
 				
 		switch (choix)
@@ -53,16 +59,36 @@ public class Principale {
 				break;
 				
 			case 2:
-				Rdv R2 = new Rdv();
 				
-				System.out.println("Veuillez saisir le nom du client");
-				R2.setClient(sc.next());
-				R2.setCategorie(Ca1);
-				R2.setEntreprise(En1);
-				R2.setService(S1);
-				R2.setEmployes(En1);
-				R2.setValide(valide);
-				R2.setDate(sc.next());
+				System.out.println("Saisir le nom du Client associé au Rdv :");
+	            String nom = sc.next();
+	            Client C2 = daoclient.findByName(nom);
+	            
+				System.out.println("Saisir l'ID de l'Employe :");
+	            int id = sc.nextInt();
+	            Employes Em2 = daoemployes.findById(id);
+	           
+				System.out.println("Saisir l'ID du Service :");
+				int id2 = sc.nextInt();
+	            Service S2 = daoservice.findById(id);
+	            
+	            Rdv R2 = new Rdv();
+	            
+	            R2.setClient(C2);
+	            R2.setEmployes(Em2);
+	            R2.setService(S2);
+	            
+				
+				System.out.println("Saisir votre date de Rdv dd-MM-yyyy");
+				DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+				try {
+					R2.setDate(formatter.parse(sc.next()));
+
+				} 
+				catch (Exception ex) {
+					System.out.println("erreur au niveau de la création de la date de naissance du client");
+					ex.printStackTrace();
+				}
 
 				
 		        daordv.save(R2);
@@ -72,7 +98,7 @@ public class Principale {
 		        break;
 				
 		        
-			case 3:
+			/*case 3:
 						
 				System.out.println("Saisir le nom du Client pour supprimer son rendez-vous :");
 	            String nom = sc.next();
@@ -127,7 +153,7 @@ public class Principale {
 		            System.out.println(R5);
 		        }
 		        
-		   		break;	
+		   		break;	*/
 
 				default:
 				System.out.println("Erreur dans la saisie");
