@@ -60,7 +60,7 @@ public class DAO_Rdv implements IDAO_Rdv {
 	}
 
 	public List<Rdv> FindAllContainsNom(String nom) {
-		Query myQuery = em.createQuery("from rdv r left join rdv.client c where c.nom like :Nom", Rdv.class);
+		Query myQuery = em.createQuery("Select r from Rdv r join r.client c where c.nom like :Nom", Rdv.class);
 		myQuery.setParameter("Nom", "%" + nom + "%");
 		return myQuery.getResultList();
 	}

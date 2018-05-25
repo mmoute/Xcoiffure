@@ -40,6 +40,9 @@ public class Entreprise {
 	@OneToMany(mappedBy="entreprise")
 	private List<Service> services;
 	
+	@OneToMany(mappedBy="entreprise")
+	private List<Employes> employes;
+	
 	@ManyToMany  (cascade= {CascadeType.REMOVE , CascadeType.REFRESH })
 	@JoinTable(
 	name="adrfournisseur",

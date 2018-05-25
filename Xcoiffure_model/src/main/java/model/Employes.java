@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
@@ -34,6 +36,10 @@ public class Employes {
 	@Column(name="EMP_INDISPONIBILITE", nullable = false)
 	@NotEmpty
 	private boolean indisponibilite;
+	
+	@ManyToOne
+	@JoinColumn(name="EMP_ENTREPRISE_ID")
+	private Entreprise entreprise;
 	
 	@OneToMany(mappedBy="employes")
 	private List<Rdv> Rdvs;

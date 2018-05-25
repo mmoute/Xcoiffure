@@ -24,85 +24,136 @@ import model.*;
 public class Principale {
 
 	public static void main(String[] args) {
-
 		
 		
 		Scanner sc = new Scanner(System.in);
 		
 		
-		/*
+		
 		//RDV
 		System.out.println("Saisir nombre correspondant à l'operation :");
 		System.out.println("1 = Lister");
 		System.out.println("2 = Ajouter");
 		System.out.println("3 = Supprimer");
 		System.out.println("4 = Trouver");
-		System.out.println("5 = Modifier");
-		int choix0 = sc.nextInt();
+		System.out.println("5 = Récuperer les réservations d'un client");
+		int choix = sc.nextInt();
 		
-		DAORdv dao = new DAORdvSQL();
 		
-		switch (choix0)
+		IDAO_Adresse daoadresse = new DAO_Adresse();
+		IDAO_Client daoclient = new DAO_Client();
+		IDAO_Rdv daordv = new DAO_Rdv();
+				
+		switch (choix)
 		{
 			case 1:
+				for (Rdv R1 : daordv.findAll()) {
+					System.out.println(R1);
+				}
 				break;
 			case 2:
-				Rdv R = new Rdv();
+				Rdv R2 = new Rdv();
+				
+				R2.setClient(sc.next());
+				categorie
+				entreprise
+				R2.setService(sc.next());
+				R2.setEmployes(sc.next());
+				R2.setValide(valide);
+				R2.setDate(sc.next());
+
+			
 				
 				System.out.println("Saisir votre prenom");
-				R.setPrenom(sc.next());
+				Prenom(sc.next());
 				
 				System.out.println("Saisir votre nom");
-				R.setNom(sc.next());
+				C2.setNom(sc.next());
 				
-				
-								
-		        DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-		        Format formatter2 = new SimpleDateFormat("yyyy-MM-dd");
+				System.out.println("Saisir votre date de naissance dd-MM-yyyy");
+				DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+				try {
+					C2.setNaissance(formatter.parse(sc.next()));
+
+				} 
+				catch (Exception ex) {
+					System.out.println("erreur au niveau de la création de la date de naissance du client");
+					ex.printStackTrace();
+				}
+
+		        daoclient.save(C2);
+		       
 		        
-		        boolean saisie1 = false;
+		        C2.setClientAssocies(new ArrayList <Adresse>());
+		        C2.getClientAssocies().add(A2);
 		        
-		        while (saisie1 == false) {        
-		        try 
-		        {		        
-		        	System.out.println("Saisir votre date de naissance => dd/MM/yyyy :");
-		            Date date = formatter.parse(sc.next());
-		            System.out.println("La date = " + date);
-		            
-		            System.out.println("La date = " + formatter2.format(date));
-		            R.setDate();(formatter2.format(date));
-		            saisie1 = true;
-		        }
-		        
-		        catch (Exception ex) 
-		        {
-		        	ex.printStackTrace();
-		        	sc.next();
-		        	System.out.println("Erreur de saisie");
-		        }
-		        
-		        case 3:
-					break;
-					
-		        case 4:
-					break;
-					
-		        case 5:
-					break;
-		        }
-		        
-		
-				
-				//SAUVEGARDE DU NOUVEAU CHAT
-				dao.save(R);
-				
-				
+		       
+		        daoclient.save(C2);
+
 				System.out.println("Ajouter");
 				break;
 				
+				
+				
+			case 3:
+								
+				try 
+		        {
+		            System.out.println("Saisir le nom du Client supprimer :");
+		            String nom = sc.next();
+		            Client C3 = daoclient.findByName(nom);
+		            
+		            
+		           daoclient.delete(C3); 
+		     
+		            
+		            System.out.println("Le client à été supprimé !");
+		            System.out.println(C3);
+		        }
+		        
+		        catch (NotFoundException ex) 
+		        {
+		            System.out.println("Le client n'existe pas");
+		            ex.printStackTrace();
+		        }
+				break;
+				
+			case 4:
+				
+				try 
+		        {
+		            System.out.println("Saisir le nom du Client recherché :");
+		            String nom = sc.next();
+		            Client C4 = daoclient.findByName(nom);
+		            
+		            System.out.println("Le client à été trouvé !");
+		            System.out.println(C4);
+		        }
+		        
+		        catch (NotFoundException ex) 
+		        {
+		            System.out.println("Le client n'existe pas");
+		            ex.printStackTrace();
+		        }
+				break;
+				
+			case 5:
+				
+				{
+		            System.out.println("Saisir le nom du Client dont vous voulez afficher les réservations :");
+		            String nom = sc.next();
+		            List<Rdv> R5 = daordv.FindAllContainsNom(nom);
+		            
+		            System.out.println("Le client à été trouvé !");
+		            System.out.println(R5);
+		        }
+		        
+		   		break;	
+
+				default:
+				System.out.println("Erreur dans la saisie");
+
 		}
-		
-		*/
 		
 		
 		//CLIENT				
@@ -241,5 +292,4 @@ public class Principale {
 
 
 	}
-
 }
