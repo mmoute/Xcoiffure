@@ -42,7 +42,7 @@ public class Adresse {
 	@ManyToMany(mappedBy="clientAssocies")
 	private List<Client> adresseClients;
 	
-	@ManyToMany(mappedBy="fournisseurAssocies")
+	@ManyToMany(mappedBy="entrepriseAssocies")
 	private List<Entreprise> adresseEntreprises;
 	
 	
