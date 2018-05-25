@@ -45,10 +45,10 @@ public class Entreprise {
 	
 	@ManyToMany  (cascade= {CascadeType.REMOVE , CascadeType.REFRESH })
 	@JoinTable(
-	name="adrfournisseur",
-	joinColumns=@JoinColumn(name="ADRFOURNISSEUR_ENT_ID", referencedColumnName="ENT_ID"),
-	inverseJoinColumns=@JoinColumn(name="ADRFOURNISSEUR_ADR_ID", referencedColumnName="ADR_ID"))
-	private List<Adresse> fournisseurAssocies;
+	name="adrentreprise",
+	joinColumns=@JoinColumn(name="ADRENTREPRISE_ENT_ID", referencedColumnName="ENT_ID"),
+	inverseJoinColumns=@JoinColumn(name="ADRENTREPRISE_ADR_ID", referencedColumnName="ADR_ID"))
+	private List<Adresse> entrepriseAssocies;
 
 	
 	
@@ -92,12 +92,12 @@ public class Entreprise {
 		this.employes = employes;
 	}
 
-	public List<Adresse> getFournisseurAssocies() {
-		return fournisseurAssocies;
+	public List<Adresse> getEntrepriseAssocies() {
+		return entrepriseAssocies;
 	}
 
-	public void setFournisseurAssocies(List<Adresse> fournisseurAssocies) {
-		this.fournisseurAssocies = fournisseurAssocies;
+	public void setEntrepriseAssocies(List<Adresse> entrepriseAssocies) {
+		this.entrepriseAssocies = entrepriseAssocies;
 	}
 
 	public Entreprise() {

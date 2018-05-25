@@ -38,14 +38,14 @@ public class Generator {
 		En1.setNom_gerant("Chang");
 		En1.setNom_societe("Coiffure d'Asie");
 
-		// En1.setFournisseurAdresses(fournisseurAdresses); MANYtoMANY
+		// En1.setEntrepriseAdresses(entrepriseAdresses); MANYtoMANY
 		// En1.setServices(services);
 		// En1.setEmployes(employes);
 
 		ajouterEntreprise.save(En1);
 		
-		En1.setFournisseurAssocies(new ArrayList <Adresse>());
-		En1.getFournisseurAssocies().add(A2);
+		En1.setEntrepriseAssocies(new ArrayList <Adresse>());
+		En1.getEntrepriseAssocies().add(A2);
 		
 		ajouterEntreprise.save(En1);
 
