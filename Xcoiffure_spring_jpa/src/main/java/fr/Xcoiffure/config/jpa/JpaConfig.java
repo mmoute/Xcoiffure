@@ -1,4 +1,4 @@
-package fr.Xcoiffure.config;
+package fr.Xcoiffure.config.jpa;
 
 import java.util.Properties;
 

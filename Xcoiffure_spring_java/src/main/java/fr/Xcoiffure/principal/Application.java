@@ -1,6 +1,6 @@
 package fr.Xcoiffure.principal;
 
-import fr.Xcoiffure.config.AppConfig;
+import fr.Xcoiffure.config.java.AppConfig;
 
 public class Application
 {

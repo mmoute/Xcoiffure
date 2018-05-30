@@ -1,4 +1,4 @@
-package fr.Xcoiffure.config;
+package fr.Xcoiffure.config.java;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
