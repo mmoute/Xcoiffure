@@ -288,7 +288,7 @@ public class AppConsole
 				{
 		            System.out.println("Saisir le nom du Client dont vous voulez afficher les réservations :");
 		            String nom = sc.next();
-		            List<Rdv> R5 = daoRdv.FindByClientNomContains(nom);
+		            List<Rdv> R5 = daoRdv.findByClientNomContains(nom);
 		            
 		            System.out.println("Le client à été trouvé !");
 		            System.out.println(R5);
