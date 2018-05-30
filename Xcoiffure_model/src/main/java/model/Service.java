@@ -46,7 +46,7 @@ public class Service {
 	private Entreprise entreprise;
 	
 	@OneToMany(mappedBy="service")
-	private List<Rdv> Rdvs;
+	private List<Rdv> rdvs;
 
 	public int getId() {
 		return id;
@@ -85,10 +85,10 @@ public class Service {
 		this.entreprise = entreprise;
 	}
 	public List<Rdv> getRdvs() {
-		return Rdvs;
+		return rdvs;
 	}
 	public void setRdvs(List<Rdv> rdvs) {
-		Rdvs = rdvs;
+		this.rdvs = rdvs;
 	}
 	
 	

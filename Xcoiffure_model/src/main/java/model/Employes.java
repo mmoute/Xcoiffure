@@ -42,7 +42,7 @@ public class Employes {
 	private Entreprise entreprise;
 	
 	@OneToMany(mappedBy="employes")
-	private List<Rdv> Rdvs;
+	private List<Rdv> rdvs;
 	
 	
 	
@@ -88,11 +88,11 @@ public class Employes {
 	}
 
 	public List<Rdv> getRdvs() {
-		return Rdvs;
+		return rdvs;
 	}
 
 	public void setRdvs(List<Rdv> rdvs) {
-		Rdvs = rdvs;
+		this.rdvs = rdvs;
 	}
 
 	public Employes() {

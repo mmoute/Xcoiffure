@@ -28,7 +28,7 @@ public class Categorie {
 	private String nom;
 	
 	@OneToMany(mappedBy="categorie")
-	private List<Service> Services;
+	private List<Service> services;
 	
 	
 	public int getId() {
@@ -44,10 +44,10 @@ public class Categorie {
 		this.nom = nom;
 	}
 	public List<Service> getServices() {
-		return Services;
+		return services;
 	}
 	public void setServices(List<Service> services) {
-		Services = services;
+		this.services = services;
 	}
 	
 	
