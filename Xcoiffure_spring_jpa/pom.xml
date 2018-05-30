@@ -39,7 +39,6 @@
 			<artifactId>spring-data-jpa</artifactId>
 			<version>${spring.data.version}</version>
 		</dependency>
-
 		<!-- Spring Test -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -47,8 +46,6 @@
 			<version>${spring.version}</version>
 			<scope>test</scope>
 		</dependency>
-
-
 		<!-- JUnit -->
 		<dependency>
 			<groupId>junit</groupId>
