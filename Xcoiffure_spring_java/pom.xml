@@ -3,4 +3,11 @@
   <groupId>Xcoiffure</groupId>
   <artifactId>Xcoiffure_spring_java</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+   <dependencies>
+  	<dependency>
+  		<groupId>Xcoiffure</groupId>
+  		<artifactId>Xcoiffure_spring_jpa</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
 </project>

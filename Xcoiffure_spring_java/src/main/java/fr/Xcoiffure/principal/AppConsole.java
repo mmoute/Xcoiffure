@@ -1,0 +1,310 @@
+package fr.Xcoiffure.principal;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import exceptions.NotFoundException;
+import fr.formation.dao.repository.IDAOProduit;
+import fr.formation.model.Produit;
+import model.Adresse;
+import model.Client;
+import model.Employes;
+import model.Rdv;
+import model.Service;
+
+
+
+public class AppConsole
+{
+	@Autowired
+	private IDAOProduit daoProduit;
+	
+	public void run(String[] args) {
+		System.out.println("LISTE DES PRODUITS");
+		for (Produit p : daoProduit.findAll()) {
+			System.out.println(p.getLibelle());
+		}
+		
+		
+		System.out.println("LISTE DES PRODUITS DONT LE PRIX EST COMPRIS ENTRE A ET B");
+		for (Produit p : daoProduit.findByPrixBetween(10d, 100d)) {
+			System.out.println(p.getLibelle());
+		}
+	}
+	
+public static void main(String[] args) throws NotFoundException {
+		
+		
+		Scanner sc = new Scanner(System.in);
+		
+		
+		
+		//RDV
+		System.out.println("Saisir nombre correspondant à l'operation :");
+		System.out.println("1 = Lister");
+		System.out.println("2 = Ajouter");
+		System.out.println("3 = Supprimer");
+		System.out.println("4 = Trouver");
+		System.out.println("5 = Récuperer les réservations d'un client");
+		int choix = sc.nextInt();
+		
+		
+		IDAO_Adresse daoadresse = new DAO_Adresse();
+		IDAO_Client daoclient = new DAO_Client();
+		IDAO_Employes daoemployes = new DAO_Employes();
+		IDAO_Service daoservice = new DAO_Service();
+		IDAO_Rdv daordv = new DAO_Rdv();
+				
+		switch (choix)
+		{
+			case 1:
+				for (Rdv R1 : daordv.findAll()) {
+					System.out.println(R1);
+				}
+				break;
+				
+			case 2:
+				
+				System.out.println("Saisir le nom du Client associé au Rdv :");
+	            String nom = sc.next();
+	            Client C2 = daoclient.findByName(nom);
+	            
+				System.out.println("Saisir l'ID de l'Employe :");
+	            int id = sc.nextInt();
+	            Employes Em2 = daoemployes.findById(id);
+	           
+				System.out.println("Saisir l'ID du Service :");
+				int id2 = sc.nextInt();
+	            Service S2 = daoservice.findById(id);
+	            
+	            Rdv R2 = new Rdv();
+	            
+	            R2.setClient(C2);
+	            R2.setEmployes(Em2);
+	            R2.setService(S2);
+	            
+				
+				System.out.println("Saisir votre date de Rdv dd-MM-yyyy");
+				DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+				try {
+					R2.setDate(formatter.parse(sc.next()));
+
+				} 
+				catch (Exception ex) {
+					System.out.println("erreur au niveau de la création de la date de naissance du client");
+					ex.printStackTrace();
+				}
+
+				
+		        daordv.save(R2);
+		       
+		        System.out.println("Le Rendez-vous à bien été pris en compte !");
+				
+		        break;
+				
+		        
+			/*case 3:
+						
+				System.out.println("Saisir le nom du Client pour supprimer son rendez-vous :");
+	            String nom = sc.next();
+					
+				try 
+		        {
+		            
+		            Client C3 = daoclient.findByName(nom);
+		            
+		            
+		            daoclient.delete(C3); 
+		     
+		            
+		            System.out.println("Le rendez vous du client " + nom + " à été supprimé !");
+		            
+		        }
+		        
+		        catch (NotFoundException ex) 
+		        {
+		            System.out.println("Le rendez-vous ne peut pas être supprimer car le client " + nom + " n'existe pas");
+		            ex.printStackTrace();
+		        }
+				break;
+				
+			case 4:
+				
+				try 
+		        {
+		            System.out.println("Saisir le nom du Client recherché :");
+		            String nom = sc.next();
+		            Client C4 = daoclient.findByName(nom);
+		            
+		            System.out.println("Le client à été trouvé !");
+		            System.out.println(C4);
+		        }
+		        
+		        catch (NotFoundException ex) 
+		        {
+		            System.out.println("Le client n'existe pas");
+		            ex.printStackTrace();
+		        }
+				break;
+				
+			case 5:
+				
+				{
+		            System.out.println("Saisir le nom du Client dont vous voulez afficher les réservations :");
+		            String nom = sc.next();
+		            List<Rdv> R5 = daordv.FindAllContainsNom(nom);
+		            
+		            System.out.println("Le client à été trouvé !");
+		            System.out.println(R5);
+		        }
+		        
+		   		break;	*/
+
+				default:
+				System.out.println("Erreur dans la saisie");
+
+		}
+		
+		
+		//CLIENT				
+		System.out.println("Saisir nombre correspondant à l'operation :");
+		System.out.println("1 = Lister");
+		System.out.println("2 = Ajouter");
+		System.out.println("3 = Supprimer");
+		System.out.println("4 = Trouver");
+		System.out.println("5 = Récuperer les réservations d'un client");
+		int choix2 = sc.nextInt();
+		
+		
+		
+				
+		switch (choix2)
+		{
+			case 1:
+				for (Client C1 : daoclient.findAll()) {
+					System.out.println(C1);
+				}
+				break;
+				
+			case 2:
+				Client C2 = new Client();
+				Adresse A2 = new Adresse();
+				
+				System.out.println("Saisir votre rue");
+				A2.setNomRue(sc.next());
+				
+				System.out.println("Saisir votre code postal");
+				A2.setCodePostal(sc.next());
+				
+				System.out.println("Saisir votre ville");
+				A2.setVille(sc.next());
+				
+				daoadresse.save(A2);
+				 
+				 
+				System.out.println("Saisir votre prenom");
+				C2.setPrenom(sc.next());
+				
+				System.out.println("Saisir votre nom");
+				C2.setNom(sc.next());
+				
+				System.out.println("Saisir votre date de naissance dd-MM-yyyy");
+				DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+				try {
+					C2.setNaissance(formatter.parse(sc.next()));
+
+				} 
+				catch (Exception ex) {
+					System.out.println("erreur au niveau de la création de la date de naissance du client");
+					ex.printStackTrace();
+				}
+
+		        daoclient.save(C2);
+		       
+		        
+		        C2.setClientAssocies(new ArrayList <Adresse>());
+		        C2.getClientAssocies().add(A2);
+		        
+		       
+		        daoclient.save(C2);
+
+				System.out.println("Ajouter");
+				break;
+				
+				
+				
+			case 3:
+				
+				//Je récupère le nom saisi
+				//Je récupère le Client avec ce nom, avec la méthode find()
+				//Je supprime ce client
+								
+				try 
+		        {
+		            System.out.println("Saisir le nom du Client supprimer :");
+		            String nom = sc.next();
+		            Client C3 = daoclient.findByName(nom);
+		            
+		            
+		           daoclient.delete(C3); 
+		     
+		            
+		            System.out.println("Le client à été supprimé !");
+		            System.out.println(C3);
+		        }
+		        
+		        catch (NotFoundException ex) 
+		        {
+		            System.out.println("Le client n'existe pas");
+		            ex.printStackTrace();
+		        }
+				break;
+				
+			case 4:
+				
+				try 
+		        {
+		            System.out.println("Saisir le nom du Client recherché :");
+		            String nom = sc.next();
+		            Client C4 = daoclient.findByName(nom);
+		            
+		            System.out.println("Le client à été trouvé !");
+		            System.out.println(C4);
+		        }
+		        
+		        catch (NotFoundException ex) 
+		        {
+		            System.out.println("Le client n'existe pas");
+		            ex.printStackTrace();
+		        }
+				break;
+				
+			case 5:
+				
+				{
+		            System.out.println("Saisir le nom du Client dont vous voulez afficher les réservations :");
+		            String nom = sc.next();
+		            List<Rdv> R5 = daordv.FindAllContainsNom(nom);
+		            
+		            System.out.println("Le client à été trouvé !");
+		            System.out.println(R5);
+		        }
+		        
+		   		break;	
+
+				default:
+				System.out.println("Erreur dans la saisie");
+
+		}
+			
+		sc.close();
+
+
+	}
+}
+}
