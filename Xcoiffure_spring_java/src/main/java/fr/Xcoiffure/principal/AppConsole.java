@@ -4,12 +4,11 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.Scanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import exceptions.NotFoundException;
+
 import fr.Xcoiffure.dao.repository.IDAOAdresse;
 import fr.Xcoiffure.dao.repository.IDAOCategorie;
 import fr.Xcoiffure.dao.repository.IDAOClient;
@@ -17,8 +16,7 @@ import fr.Xcoiffure.dao.repository.IDAOEmployes;
 import fr.Xcoiffure.dao.repository.IDAOEntreprise;
 import fr.Xcoiffure.dao.repository.IDAORdv;
 import fr.Xcoiffure.dao.repository.IDAOService;
-import fr.formation.dao.repository.IDAOProduit;
-import fr.formation.model.Produit;
+import fr.Xcoiffure.exceptions.NotFoundException;
 import model.Adresse;
 import model.Client;
 import model.Employes;
@@ -73,15 +71,15 @@ public class AppConsole
 				
 				System.out.println("Saisir le nom du Client associé au Rdv :");
 	            String nom = sc.next();
-	            Client C2 = daoClient.findByName(nom);
+	            Client C2 = daoClient.findByNom(nom);
 	            
 				System.out.println("Saisir l'ID de l'Employe :");
 	            int id = sc.nextInt();
-	            Optional<Employes> Em2 = daoEmployes.findById(id);
+	            Employes Em2 = daoEmployes.findById(id).get();
 	           
 				System.out.println("Saisir l'ID du Service :");
 				int id2 = sc.nextInt();
-	            Optional<Service> S2 = daoService.findById(id);
+	            Service S2 = daoService.findById(id).get();
 	            
 	            Rdv R2 = new Rdv();
 	            
@@ -249,7 +247,7 @@ public class AppConsole
 		        {
 		            System.out.println("Saisir le nom du Client supprimer :");
 		            String nom = sc.next();
-		            Client C3 = daoClient.findByName(nom);
+		            Client C3 = daoClient.findByNom(nom);
 		            
 		            
 		           daoClient.delete(C3); 
@@ -272,7 +270,7 @@ public class AppConsole
 		        {
 		            System.out.println("Saisir le nom du Client recherché :");
 		            String nom = sc.next();
-		            Client C4 = daoClient.findByName(nom);
+		            Client C4 = daoClient.findByNom(nom);
 		            
 		            System.out.println("Le client à été trouvé !");
 		            System.out.println(C4);

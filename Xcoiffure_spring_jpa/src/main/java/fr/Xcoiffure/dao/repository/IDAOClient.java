@@ -7,6 +7,6 @@ import model.Client;
 
 public interface IDAOClient extends JpaRepository<Client, Integer> {
 	
-	public Client findByName(String nom) throws NotFoundException ;
+	public Client findByNom(String nom) throws NotFoundException ;
 
 }
