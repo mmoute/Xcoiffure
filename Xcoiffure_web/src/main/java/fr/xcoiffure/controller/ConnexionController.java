@@ -9,7 +9,7 @@ import fr.xcoiffure.model.Client;
 
 
 @Controller
-public class AccountController {
+public class ConnexionController {
 
 	
 	@GetMapping("/connexion")
@@ -23,7 +23,7 @@ public class AccountController {
 
 		System.out.println("Username : " + client.getUsername() + " Password : " + client.getPassword());
 
-		return "accueil";
+		return "redirect:/accueil";
 	}
 }
 
