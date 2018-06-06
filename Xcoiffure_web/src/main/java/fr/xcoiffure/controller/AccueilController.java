@@ -4,11 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class AcceuilController {
+public class AccueilController {
 
 	
-	@GetMapping("/acceuil")
+	@GetMapping("/accueil")
 	public String SeConnecter() {
-		return "acceuil";
+		return "accueil";
 	}
 }
