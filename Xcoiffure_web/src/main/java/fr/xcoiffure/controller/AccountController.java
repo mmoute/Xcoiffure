@@ -1,4 +1,4 @@
-/*package fr.xcoiffure.controller;
+package fr.xcoiffure.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,17 +13,16 @@ public class AccountController {
 	
 	@GetMapping("/inscription")
 	public String SeConnecter() {
-		return "Inscription";
+		return "inscription";
 	}
 
 	
-	@PostMapping("iInscription")
-	public String SeConnecter(@ModelAttribute  Client Client) {
+	@PostMapping("/inscription")
+	public String SeConnecter(@ModelAttribute  Client client) {
 
-		System.out.println(Client);
-		System.out.println("Username : " + Client.getUsername() + " Password : " + Client.getPassword());
+		System.out.println(client);
+		System.out.println("Username : " + client.getUsername() + " Password : " + client.getPassword());
 
-		return "redirect:/acceuil";
+		return "accueil";
 	}
 }
-*/
