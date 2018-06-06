@@ -12,13 +12,13 @@ import fr.xcoiffure.model.Client;
 public class AccountController {
 
 	
-	@GetMapping("/inscription")
+	@GetMapping("/connexion")
 	public String SeConnecter() {
-		return "inscription";
+		return "connexion";
 	}
 
 	
-	@PostMapping("/inscription")
+	@PostMapping("/connexion")
 	public String SeConnecter(@ModelAttribute Client client) {
 
 		System.out.println("Username : " + client.getUsername() + " Password : " + client.getPassword());
