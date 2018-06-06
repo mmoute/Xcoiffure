@@ -14,8 +14,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import fr.xcoiffure.config.jpa.JpaConfig;
-import fr.xcoiffure.dao.repository.IDAOClient;
-import fr.xcoiffure.dao.repository.IDAORdv;
+import fr.xcoiffure.idao.IDAOClient;
+import fr.xcoiffure.idao.IDAORdv;
 import fr.xcoiffure.model.Client;
 import fr.xcoiffure.model.Rdv;
 
