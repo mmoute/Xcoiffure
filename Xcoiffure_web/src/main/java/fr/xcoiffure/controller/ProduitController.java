@@ -1,4 +1,4 @@
-package fr.xcoiffure.controller;
+/*package fr.xcoiffure.controller;
 
 
 
@@ -68,7 +68,7 @@ public class ProduitController {
 	
 
 	
-/*	@PostMapping("/modifierproduit")
+	@PostMapping("/modifierproduit")
 	public String ModifierProduit(
 			@RequestParam int id,
 			@RequestParam(value = "nomproduit", required = false) String libelle,
@@ -81,7 +81,7 @@ public class ProduitController {
 		daoProduit.save(p);
 
 		return "redirect:/produit";
-	}*/
+	}
 	
 	
 	@GetMapping("/ajoutproduit")
@@ -104,7 +104,7 @@ public class ProduitController {
 
 	
 	
-/*	@PostMapping("/ajoutproduit")
+	@PostMapping("/ajoutproduit")
 	public String AjouterProduit(
 			@RequestParam(value = "nomproduit", required = false) String libelle,
 			@RequestParam(value = "prixproduit", required = false) double prix) {
@@ -115,7 +115,7 @@ public class ProduitController {
 		daoProduit.save(p);
 
 		return "redirect:/produit";
-	}*/
+	}
 
 	
 	@GetMapping("/supprimerproduit")
@@ -126,3 +126,4 @@ public class ProduitController {
 		return "redirect:/produit";
 	}
 }
+*/

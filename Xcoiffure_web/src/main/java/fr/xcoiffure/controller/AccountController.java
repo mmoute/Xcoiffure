@@ -1,4 +1,4 @@
-package fr.xcoiffure.controller;
+/*package fr.xcoiffure.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,3 +26,4 @@ public class AccountController {
 		return "redirect:/acceuil";
 	}
 }
+*/
