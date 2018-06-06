@@ -65,8 +65,28 @@ $.ajax({
 			query: ['coiffeur']
 		}, function(place, status) {
 			console.log(place);
-			
-			$('#tableau-adresse').append(adresse.results[1].formatted_address);
+		
+/*			function créerLigneTableau(produit){
+
+				var myLigne =  $("<tr/>");
+
+
+				// Creation element html (la ligne et les 3 colonnes)
+				var myColumnNom = $("<td/>"); 
+
+				// Je place le contenu dans les colonnes nom
+				myColumnNom.html(produit.nom); 
+
+				// J'associe les colonnes à la ligne
+				myLigne.append(myColumnNom);
+
+				// On ajoute la ligne au tableau html
+*/				
+			for (let i = 0; i < 19; i++) {
+				$('#tableau-adresse').append(place[0+i].formatted_address);
+			}		
+/*}*/
+	
 		});
 }
 })
