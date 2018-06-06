@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import model.Client;
-import model.Rdv;
+import fr.xcoiffure.model.Client;
+import fr.xcoiffure.model.Rdv;
 
 public interface IDAORdv extends JpaRepository<Rdv, Integer> {
 	

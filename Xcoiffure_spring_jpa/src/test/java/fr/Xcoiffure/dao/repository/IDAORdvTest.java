@@ -14,8 +14,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import fr.Xcoiffure.config.jpa.JpaConfig;
-import model.Client;
-import model.Rdv;
+import fr.xcoiffure.model.Client;
+import fr.xcoiffure.model.Rdv;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { JpaConfig.class })

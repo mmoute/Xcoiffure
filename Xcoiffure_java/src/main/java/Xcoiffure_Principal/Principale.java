@@ -21,7 +21,7 @@ import DAO.IDAO_Employes;
 import DAO.IDAO_Rdv;
 import DAO.IDAO_Service;
 import exceptions.NotFoundException;
-import model.*;
+import fr.xcoiffure.model.*;
 
 
 

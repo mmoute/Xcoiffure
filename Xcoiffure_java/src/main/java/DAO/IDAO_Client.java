@@ -1,7 +1,7 @@
 package DAO;
 
 import exceptions.NotFoundException;
-import model.Client;
+import fr.xcoiffure.model.Client;
 
 public interface IDAO_Client extends IDAO<Client> {
 	

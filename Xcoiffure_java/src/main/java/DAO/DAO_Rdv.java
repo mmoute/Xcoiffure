@@ -7,7 +7,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
 import exceptions.NotFoundException;
-import model.Rdv;
+import fr.xcoiffure.model.Rdv;
 
 public class DAO_Rdv implements IDAO_Rdv {
 

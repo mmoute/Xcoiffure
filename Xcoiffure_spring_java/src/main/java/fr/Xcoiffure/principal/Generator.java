@@ -1,7 +1,6 @@
 package fr.Xcoiffure.principal;
 
 import java.util.ArrayList;
-import model.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -10,6 +9,7 @@ import fr.Xcoiffure.dao.repository.IDAOCategorie;
 import fr.Xcoiffure.dao.repository.IDAOEmployes;
 import fr.Xcoiffure.dao.repository.IDAOEntreprise;
 import fr.Xcoiffure.dao.repository.IDAOService;
+import fr.xcoiffure.model.*;
 
 public class Generator {
 	@Autowired

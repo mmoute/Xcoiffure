@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
 import exceptions.NotFoundException;
-import model.Adresse;
+import fr.xcoiffure.model.Adresse;
 
 public class DAO_Adresse implements IDAO_Adresse {
 	

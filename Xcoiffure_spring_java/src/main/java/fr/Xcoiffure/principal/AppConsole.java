@@ -17,11 +17,11 @@ import fr.Xcoiffure.dao.repository.IDAOEntreprise;
 import fr.Xcoiffure.dao.repository.IDAORdv;
 import fr.Xcoiffure.dao.repository.IDAOService;
 import fr.Xcoiffure.exceptions.NotFoundException;
-import model.Adresse;
-import model.Client;
-import model.Employes;
-import model.Rdv;
-import model.Service;
+import fr.xcoiffure.model.Adresse;
+import fr.xcoiffure.model.Client;
+import fr.xcoiffure.model.Employes;
+import fr.xcoiffure.model.Rdv;
+import fr.xcoiffure.model.Service;
 
 
 

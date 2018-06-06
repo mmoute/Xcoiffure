@@ -7,7 +7,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
 import exceptions.NotFoundException;
-import model.Client;
+import fr.xcoiffure.model.Client;
 
 public class DAO_Client implements IDAO_Client {
 	

@@ -1,6 +1,6 @@
 package DAO;
 
-import model.Employes;
+import fr.xcoiffure.model.Employes;
 
 public interface IDAO_Employes extends IDAO<Employes>{
 

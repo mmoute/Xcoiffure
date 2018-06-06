@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
 import exceptions.NotFoundException;
-import model.Service;
+import fr.xcoiffure.model.Service;
 
 public class DAO_Service implements IDAO_Service {
 	

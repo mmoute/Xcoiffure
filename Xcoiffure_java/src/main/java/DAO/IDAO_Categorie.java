@@ -1,6 +1,6 @@
 package DAO;
 
-import model.Categorie;
+import fr.xcoiffure.model.Categorie;
 
 public interface IDAO_Categorie extends IDAO<Categorie>{
 

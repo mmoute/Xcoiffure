@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
 import exceptions.NotFoundException;
-import model.Entreprise;
+import fr.xcoiffure.model.Entreprise;
 
 public class DAO_Entreprise implements IDAO_Entreprise {
 	

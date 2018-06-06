@@ -2,7 +2,7 @@ package DAO;
 
 import java.util.List;
 
-import model.Rdv;
+import fr.xcoiffure.model.Rdv;
 
 public interface IDAO_Rdv extends IDAO<Rdv> {
 

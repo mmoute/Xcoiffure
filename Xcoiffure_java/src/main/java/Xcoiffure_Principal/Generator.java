@@ -12,8 +12,7 @@ import DAO.IDAO_Categorie;
 import DAO.IDAO_Employes;
 import DAO.IDAO_Entreprise;
 import DAO.IDAO_Service;
-import model.Adresse;
-import model.*;
+import fr.xcoiffure.model.*;
 
 public class Generator {
 	public static void main(String[] args) {
