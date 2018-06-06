@@ -18,11 +18,11 @@ public class AccountController {
 
 	
 	@PostMapping("/inscription")
-	public String SeConnecter(@ModelAttribute  Client client) {
+	public String SeConnecter(@ModelAttribute Client client) {
 
 		System.out.println(client);
 		System.out.println("Username : " + client.getUsername() + " Password : " + client.getPassword());
 
-		return "accueil";
+		return "redirect:/accueil";
 	}
 }
