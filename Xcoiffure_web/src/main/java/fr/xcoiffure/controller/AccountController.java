@@ -4,42 +4,25 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import com.sopra.modele1.Produit;
-
-import fr.formation.model4.Utilisateur;
+import fr.xcoiffure.model.Client;
 
 
 @Controller
 public class AccountController {
 
 	
-	@GetMapping("/login")
+	@GetMapping("/inscription")
 	public String SeConnecter() {
-		return "login";
+		return "Inscription";
 	}
 
 	
-	@PostMapping("/login")
-	public String SeConnecter(@ModelAttribute  Utilisateur utilisateur) {
+	@PostMapping("iInscription")
+	public String SeConnecter(@ModelAttribute  Client Client) {
 
-		System.out.println(utilisateur);
-		System.out.println("Username : " + utilisateur.getUsername() + " Password : " + utilisateur.getPassword());
+		System.out.println(Client);
+		System.out.println("Username : " + Client.getUsername() + " Password : " + Client.getPassword());
 
-		return "redirect:/produit";
+		return "redirect:/acceuil";
 	}
-	
-/*	
-	@PostMapping("/login")
-	public String SeConnecter(
-			@RequestParam(value = "nomuser", required = false) String nom,
-			@RequestParam(value = "passeuser", required = false) String  password) {
-
-		System.out.println(nom);
-		System.out.println(password);
-		
-		return "redirect:/produit";
-	}*/
-
 }

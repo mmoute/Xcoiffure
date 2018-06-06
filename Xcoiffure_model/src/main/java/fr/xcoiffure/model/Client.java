@@ -2,7 +2,6 @@ package fr.xcoiffure.model;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Scanner;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -14,7 +13,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -56,7 +54,33 @@ public class Client {
 	joinColumns=@JoinColumn(name="ADRCLIENT_CLI_ID", referencedColumnName="CLI_ID"),
 	inverseJoinColumns=@JoinColumn(name="ADRCLIENT_ADR_ID", referencedColumnName="ADR_ID"))
 	private List<Adresse> clientAssocies;
+		
+	@Column(name="CLI_USERNAME", nullable=false)
+	@NotEmpty
+	@Size(max=50)
+	private String username;
 	
+	@Column(name="CLI_PASSWORD", nullable=false)
+	@NotEmpty
+	@Size(max=50)
+	private String password;
+	
+	
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	
 	public String toString() {
 	return this.prenom + " " + this.nom;
