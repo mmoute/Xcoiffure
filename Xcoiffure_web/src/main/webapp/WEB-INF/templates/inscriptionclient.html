@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Inscription Client</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<meta name="viewport" content="width=devide-width, initial-scale=1" />
+</head>
+<body>
+	<div id="inscriptionclient" class="form-group row text-center">
+		<div class="container">
+			<form method="POST"
+				class="form-signin col-sm-4 m-auto border border-primary rounded">
+				<h1 class="form-signin-heading text-muted ">Inscription</h1>
+				<div class="form-group row">
+				<br><h2 class="form-signin-heading text-muted ">Veuillez renseigner les informations suivantes</h2><br>
+					<div class="col-sm-12">
+						Client 	<input type="text" class="form-control text-center" placeholder="Nom" name="usernom" required> 
+								<input type="text" class="form-control text-center" placeholder="Prénom "name="userprenom" required>
+								<input type="text" class="form-control text-center" placeholder="Date de naissance "name="userdatenaissance" required><br>
+						
+						Adresse	<input type="text" class="form-control text-center" placeholder="Rue "name="adresserue" required>
+								<input type="text" class="form-control text-center" placeholder="Code Postal "name="adressecp" required>
+								<input type="text" class="form-control text-center" placeholder="Ville "name="adresseville" required>
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="col-sm-12">
+						<button class="btn btn-sm btn-primary btn-block" type="submit">Confirmer l'inscription</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	
+<footer>
+		<div class="fixed-bottom">Copyright © e-shop.fr 2018</div>
+</footer>
+
+</body>
+</html>
