@@ -1,4 +1,4 @@
-package fr.Xcoiffure.exceptions;
+package fr.xcoiffure.exceptions;
 
 public class NotFoundException extends Exception {
 		

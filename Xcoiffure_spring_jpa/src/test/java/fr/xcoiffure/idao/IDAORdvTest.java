@@ -1,4 +1,4 @@
-package fr.Xcoiffure.dao.repository;
+package fr.xcoiffure.idao;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
@@ -13,7 +13,9 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import fr.Xcoiffure.config.jpa.JpaConfig;
+import fr.xcoiffure.config.jpa.JpaConfig;
+import fr.xcoiffure.dao.repository.IDAOClient;
+import fr.xcoiffure.dao.repository.IDAORdv;
 import fr.xcoiffure.model.Client;
 import fr.xcoiffure.model.Rdv;
 

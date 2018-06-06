@@ -1,4 +1,4 @@
-package fr.Xcoiffure.dao.repository;
+package fr.xcoiffure.dao.repository;
 
 import java.util.List;
 

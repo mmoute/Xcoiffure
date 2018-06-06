@@ -1,4 +1,4 @@
-package fr.Xcoiffure.config.jpa;
+package fr.xcoiffure.config.jpa;
 
 import java.util.Properties;
 
@@ -16,12 +16,10 @@ import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @PropertySource("classpath:data-source.properties")
-@EnableJpaRepositories("fr.Xcoiffure.dao.repository")
-@EnableTransactionManagement
+@EnableJpaRepositories("fr.xcoiffure.idao")
 public class JpaConfig
 {
 	@Autowired
@@ -48,7 +46,7 @@ public class JpaConfig
 		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		
 		emf.setDataSource(dataSource);
-		emf.setPackagesToScan("model");
+		emf.setPackagesToScan("fr.xcoiffure.model");
 		emf.setJpaVendorAdapter(vendorAdapter);
 		emf.setJpaProperties(this.hibernateProperties());
 		

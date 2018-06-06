@@ -51,7 +51,7 @@
 	
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>fr.formation.config.AppConfig</param-value>
+		<param-value>fr.formation.config.JpaConfig</param-value>
 	</context-param>
 
 </web-app>
