@@ -58,8 +58,7 @@ public class ProduitController {
 	@PostMapping("/modifierproduit")
 	public String ModifierProduit(@Valid @ModelAttribute Produit produit, BindingResult result, Model model) {
 		if (result.hasErrors()) {
-			System.out.println("Le produit n'a pas été validé ...");
-			return "ajoutproduit";
+			System.out.println("Le produit n'a pas ï¿½tï¿½ validï¿½ ..			return "ajoutproduit";
 			}
 		daoProduit.save(produit);
 
@@ -94,8 +93,7 @@ public class ProduitController {
 	@PostMapping("/ajoutproduit")
 	public String AjouterProduit(@Valid @ModelAttribute Produit produit, BindingResult result, Model model ) {
 		if (result.hasErrors()) {
-			System.out.println("Le produit n'a pas été validé ...");
-			return "ajoutproduit";
+			System.out.println("Le produit n'a pas ï¿½tï¿½ validï¿½ ..			return "ajoutproduit";
 			}
 		
 		daoProduit.save(produit);
