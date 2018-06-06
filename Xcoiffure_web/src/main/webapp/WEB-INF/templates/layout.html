@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+<meta charset="UTF-8" />
+<base href="/Xcoiffure/" />
+<title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">Xcoiffure</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+</head>
+
+
+<body>
+	<nav>
+		<ul class="nav justify-content-center">
+			<li class="nav-item"><a class="nav-link active" href=produit
+				data-titre="ListeProduits">Liste des produits </a></li>
+			<li class="nav-item"><a class="nav-link active"
+				href=ajoutproduit data-titre="AjouterProduits"> Ajouter un
+					nouveau produit </a></li>
+		</ul>
+	</nav>
+
+	<header>
+		<div class="container">
+			<h1 layout:fragment="custom-title">Le titre par défaut</h1>
+		</div>
+	</header>
+
+	<div class="container">
+		<section layout:fragment="custom-content">
+			<p>Le contenu par défaut</p>
+		</section>
+	</div>
+
+	<div layout:fragment="custom-footer">
+		<div class="card-footer text-muted">« Copyright &copy; e-shop.fr»
+		</div>
+	</div>
+
+</body>
+</html>
