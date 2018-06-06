@@ -65,6 +65,8 @@ $.ajax({
 			query: ['coiffeur']
 		}, function(place, status) {
 			console.log(place);
+			
+			$('#tableau-adresse').append(adresse.results[1].formatted_address);
 		});
 }
 })
