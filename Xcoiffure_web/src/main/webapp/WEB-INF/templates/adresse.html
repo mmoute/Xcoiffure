@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout.html">
+<head>
+<meta charset="utf-8">
+<title>Les Adresses</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+</head>
+<body>
+
+	<h1 layout:fragment="custom-title">Les adresses</h1>
+
+	<section layout:fragment="custom-content">
+		<a class="btn btn-success" href="ajoutclient" role="button">Ajouter une nouvelle adresse</a>
+
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Rue</th>
+					<th scope="col">Code Postal</th>
+					<th scope="col">Ville</th>
+				</tr>
+			</thead>
+			<tr th:each="adresse : ${adresses}">
+				<td th:text="${adresse.id}" />
+				<td th:text="${adresse.nomRue}" />
+				<td th:text="${adresse.codePostal}" />
+				<td th:text="${adresse.ville}" />
+				<td><a th:href="@{modifieradresse(id=${adresse.id})}">Mettre à jour</a></td>
+				<td><a th:href="@{supprimeradresse(id=${adresse.id})}">Supprimer</a></td>
+			</tr>
+		</table>
+	</section>
+
+</body>
+</html>

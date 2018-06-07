@@ -1,5 +1,9 @@
 package fr.xcoiffure.controller;
 
+import java.util.ArrayList;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -83,9 +87,16 @@ public class InscriptionClientController {
 	@PostMapping("/inscriptionclient")
 	public String AjouterClient(
 			@ModelAttribute Client client,
-			@ModelAttribute Adresse adresse) {
+			@ModelAttribute Adresse adresse, HttpSession session) {
+		
+		session.setAttribute("username", client.getNom());
+		
 		daoClient.save(client);
 		daoAdresse.save(adresse);
+		
+		client.setClientAssocies(new ArrayList <Adresse>());
+		client.getClientAssocies().add(adresse);
+		daoClient.save(client);
 		
 		return "redirect:/accueil";
 	}
@@ -93,14 +104,16 @@ public class InscriptionClientController {
 	 //SUPPRIMER  SUPPRIMER  SUPPRIMER  SUPPRIMER  SUPPRIMER  SUPPRIMER 
 
 	@GetMapping("/supprimerclient")
-	public String SupprimerClient(@RequestParam int id) {
+	public String SupprimerClient(
+			@RequestParam int id) {
 		daoClient.deleteById(id);
 		return "redirect:/client";
 	}
+	
 
 	@GetMapping("/supprimeradresse")
 	public String SupprimerAdresse(@RequestParam int id) {
-		daoClient.deleteById(id);
+		daoAdresse.deleteById(id);
 		return "redirect:/adresse";
 	}
 
