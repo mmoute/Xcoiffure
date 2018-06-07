@@ -25,6 +25,7 @@ public class InscriptionClientController {
 	IDAOAdresse daoAdresse;
 	
 
+	 //LISTER  LISTER  LISTER  LISTER  LISTER  LISTER 
 
 	/* LISTER  LISTER  LISTER  LISTER  LISTER  LISTER*/
 
@@ -41,6 +42,8 @@ public class InscriptionClientController {
 	}
 	
 	/* MODIFIER  MODIFIER  MODIFIER  MODIFIER  MODIFIER  MODIFIER */
+
+	 //MODIFIER  MODIFIER  MODIFIER  MODIFIER  MODIFIER  MODIFIER 
 
 	@GetMapping("/modifierclient")
 	public String ModifierClient(@RequestParam(value = "id", required = false, defaultValue = "0") int id,
@@ -70,7 +73,7 @@ public class InscriptionClientController {
 	return"redirect:/adresse";
 	}
 
-	/* AJOUTER  AJOUTER  AJOUTER  AJOUTER  AJOUTER  AJOUTER */
+	 //AJOUTER  AJOUTER  AJOUTER  AJOUTER  AJOUTER  AJOUTER 
 
 	@GetMapping("/inscriptionclient")
 	public String AjouterClient(Model model) {
@@ -87,7 +90,7 @@ public class InscriptionClientController {
 		return "redirect:/accueil";
 	}
 
-	 /*SUPPRIMER  SUPPRIMER  SUPPRIMER  SUPPRIMER  SUPPRIMER  SUPPRIMER */
+	 //SUPPRIMER  SUPPRIMER  SUPPRIMER  SUPPRIMER  SUPPRIMER  SUPPRIMER 
 
 	@GetMapping("/supprimerclient")
 	public String SupprimerClient(@RequestParam int id) {
