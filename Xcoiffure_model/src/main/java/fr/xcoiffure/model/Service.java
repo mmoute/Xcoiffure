@@ -27,7 +27,7 @@ public class Service {
 	@Column(name="SER_NOM", length=100, nullable=false)
 	@NotEmpty
 	@Size(max=50)
-	private String nom;
+	private String nomService;
 	
 	@Column(name="SER_PRIX" ,columnDefinition="DECIMAL(10,2) DEFAULT 0")
 	@Min(0)
@@ -54,11 +54,11 @@ public class Service {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getNom() {
-		return nom;
+	public String getNomService() {
+		return nomService;
 	}
-	public void setNom(String nom) {
-		this.nom = nom;
+	public void setNomService(String nom) {
+		this.nomService = nom;
 	}
 	public float getPrix() {
 		return prix;

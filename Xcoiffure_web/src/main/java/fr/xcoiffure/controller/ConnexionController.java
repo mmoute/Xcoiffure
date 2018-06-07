@@ -9,18 +9,24 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import fr.xcoiffure.model.Client;
 
+
 @Controller
 public class ConnexionController {
 
+	
 	@GetMapping("/connexion")
 	public String SeConnecter() {
 		return "connexion";
 	}
 
+	
 	@PostMapping("/connexion")
-	public String SeConnecter(@ModelAttribute Client client, HttpSession session) {
+	  public String SeConnecter(@ModelAttribute Client client, HttpSession session) {
+		  session.setAttribute("username", client.getUsername());
 
-		session.setAttribute("username", client.getUsername());
 		return "redirect:/accueil";
 	}
+	
+
 }
+
