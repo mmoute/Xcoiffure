@@ -24,7 +24,7 @@ public class ConnexionController {
 	  public String SeConnecter(@ModelAttribute Client client, HttpSession session) {
 		  session.setAttribute("username", client.getUsername());
 
-		return "redirect:/formulaire-ajout-rdv";
+		return "redirect:/accueil";
 	}
 	
 
