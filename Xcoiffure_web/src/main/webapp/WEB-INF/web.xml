@@ -51,7 +51,7 @@
 	
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>fr.xcoiffure.config.JpaConfig</param-value>
+		<param-value>fr.xcoiffure.config.jpa.JpaConfig</param-value>
 	</context-param>
 
 </web-app>

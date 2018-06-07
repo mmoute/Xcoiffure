@@ -17,13 +17,16 @@ import fr.xcoiffure.model.Client;
 @Controller
 public class InscriptionClientController {
 
+
 	@Autowired
 	IDAOClient daoClient;
-
+	
 	@Autowired
 	IDAOAdresse daoAdresse;
+	
 
-	/* LISTER *//* LISTER *//* LISTER *//* LISTER *//* LISTER *//* LISTER */
+
+	/* LISTER  LISTER  LISTER  LISTER  LISTER  LISTER*/
 
 	@RequestMapping("/client")
 	public String ListerClient(Model model) {
@@ -36,8 +39,8 @@ public class InscriptionClientController {
 		model.addAttribute("adresses", daoAdresse.findAll());
 		return "adresse";
 	}
-
-	/* MODIFIER *//* MODIFIER *//* MODIFIER *//* MODIFIER *//* MODIFIER *//* MODIFIER */
+	
+	/* MODIFIER  MODIFIER  MODIFIER  MODIFIER  MODIFIER  MODIFIER */
 
 	@GetMapping("/modifierclient")
 	public String ModifierClient(@RequestParam(value = "id", required = false, defaultValue = "0") int id,
@@ -50,7 +53,7 @@ public class InscriptionClientController {
 	public String ModifierClient(
 			@ModelAttribute Client client) {
 	daoClient.save(client);
-	return"redirect:/accueil";
+	return"redirect:/client";
 	}
 	
 	@GetMapping("/modifieradresse")
@@ -64,15 +67,13 @@ public class InscriptionClientController {
 	public String ModifierAdresse(
 			@ModelAttribute Adresse adresse) {
 	daoAdresse.save(adresse);
-	return"redirect:/accueil";
+	return"redirect:/adresse";
 	}
 
-	/* AJOUTER *//* AJOUTER *//* AJOUTER *//* AJOUTER *//* AJOUTER *//* AJOUTER */
+	/* AJOUTER  AJOUTER  AJOUTER  AJOUTER  AJOUTER  AJOUTER */
 
 	@GetMapping("/inscriptionclient")
 	public String AjouterClient(Model model) {
-		model.addAttribute("client", new Client());
-		model.addAttribute("adresses", daoAdresse.findAll());
 		return "inscriptionclient";
 	}
 
@@ -86,7 +87,7 @@ public class InscriptionClientController {
 		return "redirect:/accueil";
 	}
 
-	/* SUPPRIMER *//* SUPPRIMER *//* SUPPRIMER *//* SUPPRIMER *//* SUPPRIMER *//* SUPPRIMER */
+	 /*SUPPRIMER  SUPPRIMER  SUPPRIMER  SUPPRIMER  SUPPRIMER  SUPPRIMER */
 
 	@GetMapping("/supprimerclient")
 	public String SupprimerClient(@RequestParam int id) {
