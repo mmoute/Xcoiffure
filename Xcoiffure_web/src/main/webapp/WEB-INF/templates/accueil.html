@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 
-
 <html>
 <head>
 
@@ -11,18 +10,49 @@
 <meta name="viewport" content="width=devide-width, initial-scale=1" />
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 
-
 </head>
 
 <body>
+	<ul class="nav justify-content-end">
+		<div class="btn-group" role="group">
+			<button id="btnGroupDrop1" type="button"
+				class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+				aria-haspopup="true" aria-expanded="false">Gérer compte client</button>
+			<div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+				<a class="dropdown-item" href="client">Gestion identité</a>
+				<a class="dropdown-item" href="#">Gestion adresse</a> 
+			</div>
+		</div>
+		<div class="btn-group" role="group">
+			<button id="btnGroupDrop1" type="button"
+				class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+				aria-haspopup="true" aria-expanded="false">Gérer compte entreprise</button>
+			<div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+				<a class="dropdown-item" href="entreprise">Gestion identité</a>
+				<a class="dropdown-item" href="#">Gestion adresse</a> 
+				<a class="dropdown-item" href="#">Gestion services proposés</a>
+				<a class="dropdown-item" href="#">Gestion employés</a>
+			</div>
+		</div>
+	</ul>
+
+	<div>
+		<h1>
+			Bienvenue <span th:text="${session.username}"></span>
+		</h1>
+		<br>
+	</div>
+	<br>
+
 	<section name=geolocalisation>
 		<form id="form-adresse" class="form-inline my-2 my-lg-0">
-			<input class="form-control mr-sm-2" type="search" name="ad">
+			Veuillez entrer ici votre adresse <input class="form-control mr-sm-2"
+				type="search" name="ad">
 			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">GO</button>
+			<br> <br>
 		</form>
 
-		Bonjour <span th:text="${session.username}"></span>
-		
+
 		<div id="infoposition"></div>
 		<div id="map"></div>
 		<!-- vous allez avoir besoin d'une div dans votre HTML avec une classe "map" -->
@@ -37,17 +67,18 @@
 		<tbody>
 			<tr>
 				<td></td>
-				</tr>
+			</tr>
 		</tbody>
 	</table>
-	
-	
-	<div class="form-group row">
-					<div class="col-sm-12">
-						<button class="btn btn-sm btn-primary btn-block" type="submit">Valider votre choix</button>
-					</div>
-				</div>
 
+	<div method="POST">
+		<div class="form-group row">
+			<div class="col-sm-12">
+				<button class="btn btn-sm btn-primary btn-block" type="submit">Valider
+					votre choix</button>
+			</div>
+		</div>
+	</div>
 
 
 

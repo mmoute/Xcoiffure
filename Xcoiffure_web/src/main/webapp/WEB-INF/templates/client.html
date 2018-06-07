@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout.html">
+<head>
+<meta charset="utf-8">
+<title>Les Clients</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+</head>
+<body>
+
+	<h1 layout:fragment="custom-title">Les Clients</h1>
+
+	<section layout:fragment="custom-content">
+		<a class="btn btn-success" href="ajoutclient" role="button">Ajouter un nouveau client</a>
+
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Nom</th>
+					<th scope="col">Prénom</th>
+					<th scope="col">Date de naissance</th>
+					<th scope="col">Nom d'utilisateur</th>
+					<th scope="col">Mot de passe</th>
+				</tr>
+			</thead>
+			<tr th:each="client : ${clients}">
+				<td th:text="${client.id}" />
+				<td th:text="${client.nom}" />
+				<td th:text="${client.prenom}" />
+				<td th:text="${client.naissance}" />
+				<td th:text="${client.username}" />
+				<td th:text="${client.password}" />
+				<td><a th:href="@{modifierclient(id=${client.id})}">Mettre à jour</a></td>
+				<td><a th:href="@{supprimerclient(id=${client.id})}">Supprimer</a></td>
+			</tr>
+		</table>
+	</section>
+
+</body>
+</html>

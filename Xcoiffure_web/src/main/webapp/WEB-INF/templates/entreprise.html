@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout.html">
+<head>
+<meta charset="utf-8">
+<title>Les entreprises</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+</head>
+<body>
+
+	<h1 layout:fragment="custom-title">Les Entreprises</h1>
+
+	<section layout:fragment="custom-content">
+		<a class="btn btn-success" href="ajoutclient" role="button">Ajouter une nouvelle entreprise</a>
+
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Nom de l'entreprise</th>
+					<th scope="col">Nom du gérant</th>
+					<th scope="col">Nom d'utilisateur</th>
+					<th scope="col">Mot de passe</th>
+				</tr>
+			</thead>
+			<tr th:each="entreprise : ${entreprises}">
+				<td th:text="${entreprise.id}" />
+				<td th:text="${entreprise.nom}" />
+				<td th:text="${entreprise.nomgerant}" />
+				<td th:text="${entreprise.username}" />
+				<td th:text="${entreprise.password}" />				
+				<td><a th:href="@{modifierentreprise(id=${entreprise.id})}">Mettre à jour</a></td>
+				<td><a th:href="@{supprimerentreprise(id=${entreprise.id})}">Supprimer</a></td>
+			</tr>
+		</table>
+	</section>
+
+</body>
+</html>
