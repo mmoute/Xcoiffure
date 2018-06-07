@@ -17,6 +17,6 @@ public class AccueilController {
 	@PostMapping("/accueil")
 	public String directionrdv() {
 
-		return "redirect:/formulaire-ajout-rdv";
+		return "redirect:/ajoutrdv";
 	}
 }
