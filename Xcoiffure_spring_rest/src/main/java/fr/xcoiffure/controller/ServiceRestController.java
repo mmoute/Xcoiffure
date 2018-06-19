@@ -18,61 +18,55 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import fr.xcoiffure.model.Client;
+import fr.xcoiffure.model.Service;
 import fr.xcoiffure.model.Views;
-import fr.xcoiffure.idao.IDAOClient;
+import fr.xcoiffure.idao.IDAOService;
 
 @RestController
-@RequestMapping("/client")
-public class ClientRestController {
+@RequestMapping("/service")
+public class ServiceRestController {
 	
 	@Autowired
-	private IDAOClient daoClient;
+	private IDAOService daoService;
 
 	@GetMapping("")
 	@ResponseBody
-	@JsonView(Views.ViewClient.class)
-	public List<Client> listClientAssocies() {
-		return daoClient.findAllWithClientAssocies();
+	@JsonView(Views.ViewService.class)
+	public List<Service> list() {
+		return daoService.findAllWithrdv();
 	}
-	@GetMapping("")
-	@ResponseBody
-	@JsonView(Views.ViewClient.class)
-	public List<Client> listeClientRdv() {
-		return daoClient.findAllWithClientRdv();
-	}
-	
 	
 	
 	@GetMapping("/{id}")
 	@ResponseBody
-	@JsonView(Views.ViewClient.class)
-	public Client find(@PathVariable Integer id) {
-		Optional<Client> obj =  daoClient.findById(id);
+	@JsonView(Views.ViewService.class)
+	public Service find(@PathVariable Integer id) {
+		Optional<Service> obj =  daoService.findById(id);
 		
 		if(obj.isPresent()) {
 			return obj.get();
+			
 		} else {
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Le client n'a pas été trouvé");
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Le service n'a pas été trouvé");
 		}
 	}
 	
 	@PostMapping("")
-	@JsonView(Views.ViewClient.class)
-	public void create(@RequestBody Client client) {
-		daoClient.save(client);
+	@JsonView(Views.ViewService.class)
+	public void create(@RequestBody Service service) {
+		daoService.save(service);
 	}
 	
 	@PutMapping("/{id}")
-	@JsonView(Views.ViewClient.class)
-	public void update(@RequestBody Client client) {
-		daoClient.save(client);
+	@JsonView(Views.ViewService.class)
+	public void update(@RequestBody Service service) {
+		daoService.save(service);
 	}
 	
 	@DeleteMapping("/{id}")
-	@JsonView(Views.ViewClient.class)
+	@JsonView(Views.ViewService.class)
 	public void delete(@PathVariable Integer id) {
-		daoClient.deleteById(id);
+		daoService.deleteById(id);
 	}
 	
 }
