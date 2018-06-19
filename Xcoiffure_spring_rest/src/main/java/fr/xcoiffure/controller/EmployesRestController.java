@@ -18,53 +18,55 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import fr.formation.dao.IDAOProduit;
-import fr.formation.model.Produit;
-import fr.formation.model.Views;
+import fr.xcoiffure.idao.IDAOEmployes;
+import fr.xcoiffure.model.Employes;
+import fr.xcoiffure.model.Views;
+
+
 
 @RestController
-@RequestMapping("/produit")
-public class ProduitRestController {
+@RequestMapping("/employes")
+public class EmployesRestController {
 	
 	@Autowired
-	private IDAOProduit daoProduit;
+	private IDAOEmployes daoEmployes;
 
-	@GetMapping("")
+	@GetMapping("/entreprise/{id}")
 	@ResponseBody
-	@JsonView(Views.ViewProduit.class)
-	public List<Produit> list() {
-		return daoProduit.findAllWithProduits();
+	@JsonView(Views.ViewEmployes.class)
+	public List<Employes> listEmployes() {
+		return daoEmployes.findAllWithEmployes();
 	}
 	
 	@GetMapping("/{id}")
 	@ResponseBody
-	@JsonView(Views.ViewProduit.class)
-	public Produit find(@PathVariable Integer id) {
-		Optional<Produit> obj =  daoProduit.findById(id);
+	@JsonView(Views.ViewEmployes.class)
+	public Employes find(@PathVariable Integer id) {
+		Optional<Employes> obj =  daoEmployes.findById(id);
 		
 		if(obj.isPresent()) {
 			return obj.get();
 		} else {
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Le produit n'a pas été trouvé");
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "L'employes n'a pas été trouvé");
 		}
 	}
 	
 	@PostMapping("")
-	@JsonView(Views.ViewProduit.class)
-	public void create(@RequestBody Produit produit) {
-		daoProduit.save(produit);
+	@JsonView(Views.ViewEmployes.class)
+	public void create(@RequestBody Employes employes) {
+		daoEmployes.save(employes);
 	}
 	
 	@PutMapping("/{id}")
-	@JsonView(Views.ViewProduit.class)
-	public void update(@RequestBody Produit produit) {
-		daoProduit.save(produit);
+	@JsonView(Views.ViewEmployes.class)
+	public void update(@RequestBody Employes employes) {
+		daoEmployes.save(employes);
 	}
 	
 	@DeleteMapping("/{id}")
-	@JsonView(Views.ViewProduit.class)
+	@JsonView(Views.ViewEmployes.class)
 	public void delete(@PathVariable Integer id) {
-		daoProduit.deleteById(id);
+		daoEmployes.deleteById(id);
 	}
 	
 }

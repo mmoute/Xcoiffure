@@ -18,51 +18,65 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+<<<<<<< Updated upstream
+=======
+import fr.xcoiffure.idao.IDAOAdresse;
+import fr.xcoiffure.model.Adresse;
+import fr.xcoiffure.model.Views;
+
+>>>>>>> Stashed changes
 
 
 @RestController
-@RequestMapping("/produit")
+@RequestMapping("/adresse")
 public class AdresseRestController {
 	
 	@Autowired
-	private IDAOProduit daoProduit;
+	private IDAOAdresse daoAdresse;
 
-	@GetMapping("")
+	@GetMapping("/client/{id}")
 	@ResponseBody
-	@JsonView(Views.ViewProduit.class)
-	public List<Produit> list() {
-		return daoProduit.findAllWithProduits();
+	@JsonView(Views.ViewAdresse.class)
+	public List<Adresse> listAdressesClients() {
+		return daoAdresse.findAllWithAdressesClients();
+	}
+	
+	@GetMapping("/entreprise/{id}")
+	@ResponseBody
+	@JsonView(Views.ViewAdresse.class)
+	public List<Adresse> listAdressesEntreprises() {
+		return daoAdresse.findAllWithAdressesEntreprises();
 	}
 	
 	@GetMapping("/{id}")
 	@ResponseBody
-	@JsonView(Views.ViewProduit.class)
-	public Produit find(@PathVariable Integer id) {
-		Optional<Produit> obj =  daoProduit.findById(id);
+	@JsonView(Views.ViewAdresse.class)
+	public Adresse find(@PathVariable Integer id) {
+		Optional<Adresse> obj =  daoAdresse.findById(id);
 		
 		if(obj.isPresent()) {
 			return obj.get();
 		} else {
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Le produit n'a pas été trouvé");
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "L'adresse n'a pas été trouvé");
 		}
 	}
 	
 	@PostMapping("")
-	@JsonView(Views.ViewProduit.class)
-	public void create(@RequestBody Produit produit) {
-		daoProduit.save(produit);
+	@JsonView(Views.ViewAdresse.class)
+	public void create(@RequestBody Adresse adresse) {
+		daoAdresse.save(adresse);
 	}
 	
 	@PutMapping("/{id}")
-	@JsonView(Views.ViewProduit.class)
-	public void update(@RequestBody Produit produit) {
-		daoProduit.save(produit);
+	@JsonView(Views.ViewAdresse.class)
+	public void update(@RequestBody Adresse adresse) {
+		daoAdresse.save(adresse);
 	}
 	
 	@DeleteMapping("/{id}")
-	@JsonView(Views.ViewProduit.class)
+	@JsonView(Views.ViewAdresse.class)
 	public void delete(@PathVariable Integer id) {
-		daoProduit.deleteById(id);
+		daoAdresse.deleteById(id);
 	}
 	
 }

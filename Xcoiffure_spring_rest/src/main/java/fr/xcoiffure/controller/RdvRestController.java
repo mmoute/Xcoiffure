@@ -18,53 +18,54 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import fr.formation.dao.IDAOProduit;
-import fr.formation.model.Produit;
-import fr.formation.model.Views;
+import fr.xcoiffure.idao.IDAORdv;
+import fr.xcoiffure.model.Rdv;
+import fr.xcoiffure.model.Views;
+
 
 @RestController
-@RequestMapping("/produit")
+@RequestMapping("/rdv")
 public class RdvRestController {
 	
 	@Autowired
-	private IDAOProduit daoProduit;
+	private IDAORdv daoRdv;
 
 	@GetMapping("")
 	@ResponseBody
-	@JsonView(Views.ViewProduit.class)
-	public List<Produit> list() {
-		return daoProduit.findAllWithProduits();
+	@JsonView(Views.ViewRdv.class)
+	public List<Rdv> list() {
+		return daoRdv.findAll();
 	}
 	
 	@GetMapping("/{id}")
 	@ResponseBody
-	@JsonView(Views.ViewProduit.class)
-	public Produit find(@PathVariable Integer id) {
-		Optional<Produit> obj =  daoProduit.findById(id);
+	@JsonView(Views.ViewRdv.class)
+	public Rdv find(@PathVariable Integer id) {
+		Optional<Rdv> obj =  daoRdv.findById(id);
 		
 		if(obj.isPresent()) {
 			return obj.get();
 		} else {
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Le produit n'a pas été trouvé");
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Le rdv n'a pas été trouvé");
 		}
 	}
 	
 	@PostMapping("")
-	@JsonView(Views.ViewProduit.class)
-	public void create(@RequestBody Produit produit) {
-		daoProduit.save(produit);
+	@JsonView(Views.ViewRdv.class)
+	public void create(@RequestBody Rdv rdv) {
+		daoRdv.save(rdv);
 	}
 	
 	@PutMapping("/{id}")
-	@JsonView(Views.ViewProduit.class)
-	public void update(@RequestBody Produit produit) {
-		daoProduit.save(produit);
+	@JsonView(Views.ViewRdv.class)
+	public void update(@RequestBody Rdv rdv) {
+		daoRdv.save(rdv);
 	}
 	
 	@DeleteMapping("/{id}")
-	@JsonView(Views.ViewProduit.class)
+	@JsonView(Views.ViewRdv.class)
 	public void delete(@PathVariable Integer id) {
-		daoProduit.deleteById(id);
+		daoRdv.deleteById(id);
 	}
 	
 }
