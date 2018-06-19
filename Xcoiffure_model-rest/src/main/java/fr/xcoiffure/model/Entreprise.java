@@ -42,11 +42,11 @@ public class Entreprise {
 	private String nom_gerant;
 	
 	@OneToMany(mappedBy="entreprise")
-	@JsonView(Views.ViewEntreprise.class)
+//	@JsonView(Views.ViewEntreprise.class)
 	private List<Service> services;
 	
 	@OneToMany(mappedBy="entreprise")
-	@JsonView(Views.ViewEntreprise.class)
+//	@JsonView(Views.ViewEntreprise.class)
 	private List<Employes> employes;
 	
 	@ManyToMany  (cascade= {CascadeType.REMOVE , CascadeType.REFRESH })

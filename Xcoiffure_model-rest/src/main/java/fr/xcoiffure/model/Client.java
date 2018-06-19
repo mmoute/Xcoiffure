@@ -64,11 +64,11 @@ public class Client {
 	private String password;
 	
 	@OneToMany(mappedBy="client")
-	@JsonView(Views.ViewClient.class)
+
 	private List<Rdv> rdvs;
 	
-	@ManyToMany  (cascade= {CascadeType.REMOVE , CascadeType.REFRESH })
 	@JsonView(Views.ViewClient.class)
+	@ManyToMany  (cascade= {CascadeType.REMOVE , CascadeType.REFRESH })
 	@JoinTable(
 	name="adrclient",
 	joinColumns=@JoinColumn(name="ADRCLIENT_CLI_ID", referencedColumnName="CLI_ID"),

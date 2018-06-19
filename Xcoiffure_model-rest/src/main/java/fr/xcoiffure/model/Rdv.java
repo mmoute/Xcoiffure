@@ -40,17 +40,17 @@ public class Rdv {
 		
 	@ManyToOne
 	@JoinColumn(name="RDV_CLI_ID")
-	@JsonView(Views.ViewRdv.class)
+//	@JsonView(Views.ViewRdv.class)
 	private Client client;
 
 	@ManyToOne
 	@JoinColumn(name="RDV_SER_ID")
-	@JsonView(Views.ViewRdv.class)
+//	@JsonView(Views.ViewRdv.class)
 	private Service service;
 	
 	@ManyToOne
 	@JoinColumn(name="RDV_EMP_ID")
-	@JsonView(Views.ViewRdv.class)
+//	@JsonView(Views.ViewRdv.class)
 	private Employes employes;
 
 	public int getId() {

@@ -29,7 +29,7 @@ public class ClientRestController {
 	@Autowired
 	private IDAOClient daoClient;
 
-	@GetMapping("/adresse")
+	@GetMapping("")
 	@ResponseBody
 	@JsonView(Views.ViewClient.class)
 	public List<Client> listClientAssocies() {

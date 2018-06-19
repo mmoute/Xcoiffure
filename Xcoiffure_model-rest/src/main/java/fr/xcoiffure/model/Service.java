@@ -45,12 +45,12 @@ public class Service {
 	
 	@ManyToOne
 	@JoinColumn(name="SER_CATEGORIE_ID")
-	@JsonView(Views.ViewService.class)
+//	@JsonView(Views.ViewService.class)
 	private Categorie categorie;
 	
 	@ManyToOne
 	@JoinColumn(name="SER_ENTREPRISE_ID")
-	@JsonView(Views.ViewService.class)
+//	@JsonView(Views.ViewService.class)
 	private Entreprise entreprise;
 	
 	@OneToMany(mappedBy="service")

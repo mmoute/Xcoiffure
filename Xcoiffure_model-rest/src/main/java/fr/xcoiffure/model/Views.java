@@ -6,6 +6,9 @@ public class Views {
 
 	public static class ViewAdresse extends ViewCommons {
 	}
+	
+	public static class ViewAdresseWithEntreprise extends ViewAdresse {
+	}
 
 	public static class ViewCategorie extends ViewCommons {
 	}
