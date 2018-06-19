@@ -33,7 +33,7 @@ public class ServiceRestController {
 	@ResponseBody
 	@JsonView(Views.ViewService.class)
 	public List<Service> list() {
-		return daoService.findAllWithrdv();
+		return daoService.findAllWithServiceRdv();
 	}
 	
 	

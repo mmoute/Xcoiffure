@@ -30,21 +30,21 @@ public class EntrepriseRestController {
 	@Autowired
 	private IDAOEntreprise daoEntreprise;
 
-	@GetMapping("")
+	@GetMapping("/adresse")
 	@ResponseBody
 	@JsonView(Views.ViewEntreprise.class)
 	public List<Entreprise> listentrepriseAssocies() {
 		return daoEntreprise.findAllWithentrepriseAssocies();
 	}
 	
-	@GetMapping("")
+	@GetMapping("/employes")
 	@ResponseBody
 	@JsonView(Views.ViewEntreprise.class)
 	public List<Entreprise> listemployes() {
 		return daoEntreprise.findAllWithemployes();
 	}
 	
-	@GetMapping("")
+	@GetMapping("/service")
 	@ResponseBody
 	@JsonView(Views.ViewEntreprise.class)
 	public List<Entreprise> listservices() {

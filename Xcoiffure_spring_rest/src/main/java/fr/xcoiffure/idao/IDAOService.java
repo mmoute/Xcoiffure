@@ -10,6 +10,6 @@ import fr.xcoiffure.model.Service;
 public interface IDAOService extends JpaRepository<Service, Integer> {
 
 	@Query("select distinct s from Service s left join fetch s.rdvs rdv")
-	List<Service> findAllWithrdv();
+	List<Service> findAllWithServiceRdv();
 	
 }

@@ -35,7 +35,7 @@ public class EmployesRestController {
 	@ResponseBody
 	@JsonView(Views.ViewEmployes.class)
 	public List<Employes> listEmployes() {
-		return daoEmployes.findAllWithEmployes();
+		return daoEmployes.findAllWithEmployesRdv();
 	}
 	
 	@GetMapping("/{id}")

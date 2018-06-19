@@ -29,13 +29,13 @@ public class ClientRestController {
 	@Autowired
 	private IDAOClient daoClient;
 
-	@GetMapping("")
+	@GetMapping("/adresse")
 	@ResponseBody
 	@JsonView(Views.ViewClient.class)
 	public List<Client> listClientAssocies() {
 		return daoClient.findAllWithClientAssocies();
 	}
-	@GetMapping("")
+	@GetMapping("/rdv")
 	@ResponseBody
 	@JsonView(Views.ViewClient.class)
 	public List<Client> listeClientRdv() {

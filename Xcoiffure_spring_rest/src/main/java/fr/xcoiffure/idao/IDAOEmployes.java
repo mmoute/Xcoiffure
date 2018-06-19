@@ -10,6 +10,6 @@ import fr.xcoiffure.model.Employes;
 public interface IDAOEmployes extends JpaRepository<Employes, Integer> {
 
 	@Query("select distinct em from Employes em left join fetch em.rdvs rdv")
-	List<Employes> findAllWithEmployes();
+	List<Employes> findAllWithEmployesRdv();
 
 }
