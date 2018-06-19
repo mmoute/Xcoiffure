@@ -32,9 +32,17 @@ public class ClientRestController {
 	@GetMapping("")
 	@ResponseBody
 	@JsonView(Views.ViewClient.class)
-	public List<Client> list() {
+	public List<Client> listClientAssocies() {
 		return daoClient.findAllWithClientAssocies();
 	}
+	@GetMapping("")
+	@ResponseBody
+	@JsonView(Views.ViewClient.class)
+	public List<Client> listeClientRdv() {
+		return daoClient.findAllWithClientRdv();
+	}
+	
+	
 	
 	@GetMapping("/{id}")
 	@ResponseBody
