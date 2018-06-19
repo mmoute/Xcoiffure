@@ -18,9 +18,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import fr.formation.dao.IDAOProduit;
-import fr.formation.model.Produit;
-import fr.formation.model.Views;
+
 
 @RestController
 @RequestMapping("/produit")

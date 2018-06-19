@@ -18,29 +18,29 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import fr.formation.dao.IDAOProduit;
-import fr.formation.model.Produit;
-import fr.formation.model.Views;
+import fr.xcoiffure.model.Client;
+import fr.xcoiffure.model.Views;
+import fr.xcoiffure.idao.IDAOClient;
 
 @RestController
-@RequestMapping("/produit")
+@RequestMapping("/client")
 public class ClientRestController {
 	
 	@Autowired
-	private IDAOProduit daoProduit;
+	private IDAOClient daoClient;
 
 	@GetMapping("")
 	@ResponseBody
-	@JsonView(Views.ViewProduit.class)
-	public List<Produit> list() {
-		return daoProduit.findAllWithProduits();
+	@JsonView(Views.ViewClient.class)
+	public List<Client> list() {
+		return daoClient.findAllWithClientAssocies();
 	}
 	
 	@GetMapping("/{id}")
 	@ResponseBody
-	@JsonView(Views.ViewProduit.class)
-	public Produit find(@PathVariable Integer id) {
-		Optional<Produit> obj =  daoProduit.findById(id);
+	@JsonView(Views.ViewClient.class)
+	public Client find(@PathVariable Integer id) {
+		Optional<Client> obj =  daoClient.findById(id);
 		
 		if(obj.isPresent()) {
 			return obj.get();
@@ -50,21 +50,21 @@ public class ClientRestController {
 	}
 	
 	@PostMapping("")
-	@JsonView(Views.ViewProduit.class)
-	public void create(@RequestBody Produit produit) {
-		daoProduit.save(produit);
+	@JsonView(Views.ViewClient.class)
+	public void create(@RequestBody Client client) {
+		daoClient.save(client);
 	}
 	
 	@PutMapping("/{id}")
-	@JsonView(Views.ViewProduit.class)
-	public void update(@RequestBody Produit produit) {
-		daoProduit.save(produit);
+	@JsonView(Views.ViewClient.class)
+	public void update(@RequestBody Client client) {
+		daoClient.save(client);
 	}
 	
 	@DeleteMapping("/{id}")
-	@JsonView(Views.ViewProduit.class)
+	@JsonView(Views.ViewClient.class)
 	public void delete(@PathVariable Integer id) {
-		daoProduit.deleteById(id);
+		daoClient.deleteById(id);
 	}
 	
 }
