@@ -30,19 +30,19 @@ public class AdresseRestController {
 	@Autowired
 	private IDAOAdresse daoAdresse;
 
-	@GetMapping("/client/{id}")
-	@ResponseBody
-	@JsonView(Views.ViewAdresse.class)
-	public List<Adresse> listAdressesClients() {
-		return daoAdresse.findAllWithAdressesClients();
-	}
-	
-	@GetMapping("/entreprise/{id}")
-	@ResponseBody
-	@JsonView(Views.ViewAdresse.class)
-	public List<Adresse> listAdressesEntreprises() {
-		return daoAdresse.findAllWithAdressesEntreprises();
-	}
+//	@GetMapping("/client/{id}")
+//	@ResponseBody
+//	@JsonView(Views.ViewAdresse.class)
+//	public List<Adresse> listAdressesClients() {
+//		return daoAdresse.findAllWithAdressesClients();
+//	}
+//	
+//	@GetMapping("/entreprise/{id}")
+//	@ResponseBody
+//	@JsonView(Views.ViewAdresse.class)
+//	public List<Adresse> listAdressesEntreprises() {
+//		return daoAdresse.findAllWithAdressesEntreprises();
+//	}
 	
 	@GetMapping("/{id}")
 	@ResponseBody

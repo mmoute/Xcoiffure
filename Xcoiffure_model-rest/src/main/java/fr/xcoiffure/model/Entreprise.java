@@ -50,7 +50,7 @@ public class Entreprise {
 	private List<Employes> employes;
 	
 	@ManyToMany  (cascade= {CascadeType.REMOVE , CascadeType.REFRESH })
-	@JsonView(Views.ViewEntreprise.class)
+//	@JsonView(Views.ViewEntreprise.class)
 	@JoinTable(
 	name="adrentreprise",
 	joinColumns=@JoinColumn(name="ADRENTREPRISE_ENT_ID", referencedColumnName="ENT_ID"),

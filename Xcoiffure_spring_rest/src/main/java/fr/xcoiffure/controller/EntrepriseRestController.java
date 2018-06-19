@@ -18,9 +18,11 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import fr.xcoiffure.idao.IDAOAdresse;
 import fr.xcoiffure.idao.IDAOEmployes;
 import fr.xcoiffure.idao.IDAOEntreprise;
 import fr.xcoiffure.idao.IDAOService;
+import fr.xcoiffure.model.Adresse;
 import fr.xcoiffure.model.Employes;
 import fr.xcoiffure.model.Entreprise;
 import fr.xcoiffure.model.Service;
@@ -39,12 +41,29 @@ public class EntrepriseRestController {
 	
 	@Autowired
 	private IDAOEmployes daoEmployes;
+	
+	@Autowired
+	private IDAOAdresse daoAdresse;
 
+//	@GetMapping("")
+//	@ResponseBody
+//	@JsonView(Views.ViewEntreprise.class)
+//	public List<Entreprise> listentrepriseAssocies() {
+//		return daoEntreprise.findAllWithentrepriseAssocies();
+//	}
+	
 	@GetMapping("")
 	@ResponseBody
 	@JsonView(Views.ViewEntreprise.class)
 	public List<Entreprise> listentrepriseAssocies() {
-		return daoEntreprise.findAllWithentrepriseAssocies();
+		return daoEntreprise.findAll();
+	}
+	
+	@GetMapping("/{id}/adresse")
+	@ResponseBody
+	@JsonView(Views.ViewEntreprise.class)
+	public List<Adresse> listadresse(@PathVariable Integer id) {
+		return daoAdresse.findAllByEntreprise(id);
 	}
 	
 	@GetMapping("/{id}/employes")
@@ -56,7 +75,7 @@ public class EntrepriseRestController {
 	
 	@GetMapping("/{id}/service")
 	@ResponseBody
-	@JsonView(Views.ViewEntreprise.class)
+	@JsonView(Views.ViewService.class)
 	public List<Service> listservices(@PathVariable Integer id) {
 		return daoService.findAllByEntreprise(id);
 	}

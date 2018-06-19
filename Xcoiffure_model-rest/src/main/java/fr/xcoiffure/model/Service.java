@@ -54,7 +54,7 @@ public class Service {
 	private Entreprise entreprise;
 	
 	@OneToMany(mappedBy="service")
-	@JsonView(Views.ViewService.class)
+//	@JsonView(Views.ViewService.class)
 	private List<Rdv> rdvs;
 
 	public int getId() {
