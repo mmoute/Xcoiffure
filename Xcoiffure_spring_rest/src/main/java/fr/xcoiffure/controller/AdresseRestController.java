@@ -18,13 +18,9 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-<<<<<<< Updated upstream
-=======
 import fr.xcoiffure.idao.IDAOAdresse;
 import fr.xcoiffure.model.Adresse;
 import fr.xcoiffure.model.Views;
-
->>>>>>> Stashed changes
 
 
 @RestController
