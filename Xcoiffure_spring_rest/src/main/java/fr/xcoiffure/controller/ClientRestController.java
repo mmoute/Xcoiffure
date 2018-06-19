@@ -18,9 +18,15 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import fr.xcoiffure.model.Adresse;
 import fr.xcoiffure.model.Client;
+import fr.xcoiffure.model.Employes;
+import fr.xcoiffure.model.Entreprise;
+import fr.xcoiffure.model.Rdv;
 import fr.xcoiffure.model.Views;
+import fr.xcoiffure.idao.IDAOAdresse;
 import fr.xcoiffure.idao.IDAOClient;
+import fr.xcoiffure.idao.IDAORdv;
 
 @RestController
 @RequestMapping("/client")
@@ -28,20 +34,33 @@ public class ClientRestController {
 	
 	@Autowired
 	private IDAOClient daoClient;
+	
+	@Autowired
+	private IDAOAdresse daoAdresse;
+	
+	@Autowired
+	private IDAORdv daoRdv;
 
 	@GetMapping("")
 	@ResponseBody
 	@JsonView(Views.ViewClient.class)
 	public List<Client> listClientAssocies() {
-		return daoClient.findAllWithClientAssocies();
-	}
-	@GetMapping("/rdv")
-	@ResponseBody
-	@JsonView(Views.ViewClient.class)
-	public List<Client> listeClientRdv() {
-		return daoClient.findAllWithClientRdv();
+		return daoClient.findAll();
 	}
 	
+	@GetMapping("/{id}/adresse")
+	@ResponseBody
+	@JsonView(Views.ViewClient.class)
+	public List<Adresse> listadresse(@PathVariable Integer id) {
+		return daoAdresse.findAllByClient(id);
+	}
+	
+	@GetMapping("/{id}/rdv")
+	@ResponseBody
+	@JsonView(Views.ViewRdv.class)
+	public List<Rdv> listeRdvClient(@PathVariable Integer id) {
+		return daoRdv.findAllByClient(id);
+	}
 	
 	
 	@GetMapping("/{id}")

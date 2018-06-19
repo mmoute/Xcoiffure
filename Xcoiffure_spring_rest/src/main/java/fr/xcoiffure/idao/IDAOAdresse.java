@@ -19,5 +19,8 @@ public interface IDAOAdresse extends JpaRepository<Adresse, Integer> {
 	
 	@Query("select a from Adresse a inner join a.adresseEntreprises ae where ae.id = :id")
 	List<Adresse> findAllByEntreprise(@Param("id") Integer id);
+	
+	@Query("select a from Adresse a inner join a.adresseClients ac where ac.id = :id")
+	List<Adresse> findAllByClient(@Param("id") Integer id);
 
 }

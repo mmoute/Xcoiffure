@@ -64,10 +64,10 @@ public class Client {
 	private String password;
 	
 	@OneToMany(mappedBy="client")
-
 	private List<Rdv> rdvs;
 	
-	@JsonView(Views.ViewClient.class)
+	
+//	@JsonView(Views.ViewClient.class)
 	@ManyToMany  (cascade= {CascadeType.REMOVE , CascadeType.REFRESH })
 	@JoinTable(
 	name="adrclient",
