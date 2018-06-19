@@ -18,53 +18,54 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import fr.formation.dao.IDAOProduit;
-import fr.formation.model.Produit;
-import fr.formation.model.Views;
+import fr.xcoiffure.idao.IDAOEntreprise;
+import fr.xcoiffure.model.Entreprise;
+import fr.xcoiffure.model.Views;
+
 
 @RestController
-@RequestMapping("/produit")
+@RequestMapping("/entreprise")
 public class EntrepriseRestController {
 	
 	@Autowired
-	private IDAOProduit daoProduit;
+	private IDAOEntreprise daoEntreprise;
 
 	@GetMapping("")
 	@ResponseBody
-	@JsonView(Views.ViewProduit.class)
-	public List<Produit> list() {
-		return daoProduit.findAllWithProduits();
+	@JsonView(Views.ViewEntreprise.class)
+	public List<Entreprise> list() {
+		return daoEntreprise.findAllWithentrepriseAssocies();
 	}
 	
 	@GetMapping("/{id}")
 	@ResponseBody
-	@JsonView(Views.ViewProduit.class)
-	public Produit find(@PathVariable Integer id) {
-		Optional<Produit> obj =  daoProduit.findById(id);
+	@JsonView(Views.ViewEntreprise.class)
+	public Entreprise find(@PathVariable Integer id) {
+		Optional<Entreprise> obj =  daoEntreprise.findById(id);
 		
 		if(obj.isPresent()) {
 			return obj.get();
 		} else {
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Le produit n'a pas été trouvé");
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "L'entreprise n'a pas été trouvé");
 		}
 	}
 	
 	@PostMapping("")
-	@JsonView(Views.ViewProduit.class)
-	public void create(@RequestBody Produit produit) {
-		daoProduit.save(produit);
+	@JsonView(Views.ViewEntreprise.class)
+	public void create(@RequestBody Entreprise entreprise) {
+		daoEntreprise.save(entreprise);
 	}
 	
 	@PutMapping("/{id}")
-	@JsonView(Views.ViewProduit.class)
-	public void update(@RequestBody Produit produit) {
-		daoProduit.save(produit);
+	@JsonView(Views.ViewEntreprise.class)
+	public void update(@RequestBody Entreprise entreprise) {
+		daoEntreprise.save(entreprise);
 	}
 	
 	@DeleteMapping("/{id}")
-	@JsonView(Views.ViewProduit.class)
+	@JsonView(Views.ViewEntreprise.class)
 	public void delete(@PathVariable Integer id) {
-		daoProduit.deleteById(id);
+		daoEntreprise.deleteById(id);
 	}
 	
 }
