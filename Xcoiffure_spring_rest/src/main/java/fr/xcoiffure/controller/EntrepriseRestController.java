@@ -33,8 +33,22 @@ public class EntrepriseRestController {
 	@GetMapping("")
 	@ResponseBody
 	@JsonView(Views.ViewEntreprise.class)
-	public List<Entreprise> list() {
+	public List<Entreprise> listentrepriseAssocies() {
 		return daoEntreprise.findAllWithentrepriseAssocies();
+	}
+	
+	@GetMapping("")
+	@ResponseBody
+	@JsonView(Views.ViewEntreprise.class)
+	public List<Entreprise> listemployes() {
+		return daoEntreprise.findAllWithemployes();
+	}
+	
+	@GetMapping("")
+	@ResponseBody
+	@JsonView(Views.ViewEntreprise.class)
+	public List<Entreprise> listservices() {
+		return daoEntreprise.findAllWithservices();
 	}
 	
 	@GetMapping("/{id}")
