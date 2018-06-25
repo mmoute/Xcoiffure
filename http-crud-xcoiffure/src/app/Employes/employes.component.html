@@ -89,9 +89,9 @@
   </div>
 
   <div class="row mb-2 col-auto">
-    <button (click)="sauvegarder()" class="btn btn-success" [disabled]="!formClient.nom || !formClient.entreprise || !formClient.prenom || !formClient.indisponibilite">
-      <span *ngIf="!formClient.id">AJOUTER</span>
-      <span *ngIf="formClient.id">MODIFIER</span>
+    <button (click)="sauvegarder()" class="btn btn-success" [disabled]="!formEmployes.nom || !formEmployes.entreprise || !formEmployes.prenom || !formEmployes.indisponibilite">
+      <span *ngIf="!formEmployes.id">AJOUTER</span>
+      <span *ngIf="formEmployes.id">MODIFIER</span>
     </button>
   </div>
 </div>
