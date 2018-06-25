@@ -31,9 +31,9 @@ export class EmployesComponent implements OnInit {
   }
 
   public filtrer() {
-    return this.employess.filter(c =>
-      c.nom.toLowerCase().indexOf(this.filtre.toLowerCase()) !== -1 ||
-      c.prenom.toLowerCase().indexOf(this.filtre.toLowerCase()) !== -1
+    return this.employess.filter(e =>
+      e.nom.toLowerCase().indexOf(this.filtre.toLowerCase()) !== -1 ||
+      e.prenom.toLowerCase().indexOf(this.filtre.toLowerCase()) !== -1
     );
   }
 

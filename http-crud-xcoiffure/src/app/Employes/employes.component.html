@@ -17,6 +17,7 @@
       <th>Prénom</th>
       <th>Entreprise</th>
       <th>Indisponibilite</th>
+      <th>Actions</th>
     </tr>
     </thead>
 
@@ -68,19 +69,27 @@
       <div class="input-group-text">Prénom du client</div>
     </div>
 
-    <input type="text" class="form-control" [(ngModel)]="formClient.prenom" placeholder="Prénom du client" />
+    <input type="text" class="form-control" [(ngModel)]="formEmployes.prenom" placeholder="Prénom de l'employes" />
   </div>
 
   <div class="input-group mb-2">
     <div class="input-group-prepend">
-      <div class="input-group-text">CA du client</div>
+      <div class="input-group-text">Entreprise</div>
     </div>
 
-    <input type="number" class="form-control" [(ngModel)]="formClient.ca" placeholder="CA du client" />
+    <input type="number" class="form-control" [(ngModel)]="formEmployes.entreprise" placeholder="Entreprise de l'employes" />
+  </div>
+
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Entreprise</div>
+    </div>
+
+    <input type="number" class="form-control" [(ngModel)]="formEmployes.indisponibilite" placeholder="Indisponibilite" />
   </div>
 
   <div class="row mb-2 col-auto">
-    <button (click)="sauvegarder()" class="btn btn-success" [disabled]="!formClient.nom || !formClient.prenom">
+    <button (click)="sauvegarder()" class="btn btn-success" [disabled]="!formClient.nom || !formClient.entreprise || !formClient.prenom || !formClient.indisponibilite">
       <span *ngIf="!formClient.id">AJOUTER</span>
       <span *ngIf="formClient.id">MODIFIER</span>
     </button>

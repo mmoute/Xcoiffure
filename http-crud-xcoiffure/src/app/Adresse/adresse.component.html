@@ -1,3 +1,83 @@
-<p>
-  adresse works!
-</p>
+<div class="container">
+  <h1>Adresse</h1>
+  <h2>Liste des adresses</h2>
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Filtrer la liste</div>
+    </div>
+
+    <input type="text" class="form-control" [(ngModel)]="filtre" placeholder="Filtres ..." />
+  </div>
+
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Rue</th>
+      <th>Code Postal</th>
+      <th>Ville</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let adresse of filtrer()">
+      <td>
+        <span><a [routerLink]="['/adresse', adresse.id]" routerLinkActive="active">{{ adresse.rue }}</a></span>
+      </td>
+
+      <td>
+        <span>{{ adresse.codePostal }}</span>
+      </td>
+
+      <td>
+        <span>{{ adresse.ville }}</span>
+      </td>
+      <td>
+        <button (click)="editer(adresse.id)" class="btn btn-warning">Editer</button>
+        <button (click)="supprimer(adresse.id)" class="btn btn-danger">Supprimer</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="row mb-2 col-auto">
+    <button (click)="ajouter()" class="btn btn-success">AJOUTER</button>
+  </div>
+</div>
+
+<hr />
+
+<div class="container" *ngIf="formAdresse">
+
+  <h2>Ajouter / modifier une adresse</h2>
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Rue</div>
+    </div>
+
+    <input type="text" class="form-control" [(ngModel)]="formAdresse.rue" placeholder="Rue" />
+  </div>
+
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Code Postal</div>
+    </div>
+
+    <input type="text" class="form-control" [(ngModel)]="formAdresse.codePostal" placeholder="Code Postal" />
+  </div>
+
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Ville</div>
+    </div>
+
+    <input type="number" class="form-control" [(ngModel)]="formAdresse.ville" placeholder="Ville" />
+  </div>
+
+  <div class="row mb-2 col-auto">
+    <button (click)="sauvegarder()" class="btn btn-success" [disabled]="!formAdresse.rue || !formAdresse.codePostal || !formAdresse.ville ">
+      <span *ngIf="!formAdresse.id">AJOUTER</span>
+      <span *ngIf="formAdresse.id">MODIFIER</span>
+    </button>
+  </div>
+</div>
