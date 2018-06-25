@@ -23,15 +23,15 @@
     <tbody>
     <tr *ngFor="let entreprise of filtrer()">
       <td>
-        <span><a [routerLink]="['/entreprise', entreprise.id]" routerLinkActive="active">{{ entreprise.nom }}</a></span>
+        <span><a [routerLink]="['/entreprise', entreprise.id]" routerLinkActive="active">{{ entreprise.nom_societe }}</a></span>
       </td>
 
       <td>
-        <span>{{ entreprise.adresse }}</span>
+        <span>{{ entreprise.entrepriseAssocies }}</span>
       </td>
 
       <td>
-        <span>{{ entreprise.nomGerant }}</span>
+        <span>{{ entreprise.nom_gerant }}</span>
       </td>
 
       <td>
@@ -56,7 +56,7 @@
       <div class="input-group-text">Nom de l'entreprise</div>
     </div>
 
-    <input type="text" class="form-control" [(ngModel)]="formEntreprise.nom" placeholder="Nom de l'entreprise" />
+    <input type="text" class="form-control" [(ngModel)]="formEntreprise.nom_societe" placeholder="Nom de l'entreprise" />
   </div>
 
   <div class="input-group mb-2">
@@ -64,7 +64,7 @@
       <div class="input-group-text">Id de l'adresse associée</div>
     </div>
 
-    <input type="text" class="form-control" [(ngModel)]="formEntreprise.adresse" placeholder="Id de l'adresse associée" />
+    <input type="text" class="form-control" [(ngModel)]="formEntreprise.entrepriseAssocies" placeholder="Id de l'adresse associée" />
   </div>
 
   <div class="input-group mb-2">
@@ -72,11 +72,11 @@
       <div class="input-group-text">Nom du Gérant</div>
     </div>
 
-    <input type="number" class="form-control" [(ngModel)]="formEntreprise.nomGerant" placeholder="Nom du Gérant" />
+    <input type="number" class="form-control" [(ngModel)]="formEntreprise.nom_gerant" placeholder="Nom du Gérant" />
   </div>
 
   <div class="row mb-2 col-auto">
-    <button (click)="sauvegarder()" class="btn btn-success" [disabled]="!formEntreprise.nom || !formEntreprise.adresse || !formEntreprise.nomGerant">
+    <button (click)="sauvegarder()" class="btn btn-success" [disabled]="!formEntreprise.nom_societe || !formEntreprise.entrepriseAssocies || !formEntreprise.nom_gerant">
       <span *ngIf="!formEntreprise.id">AJOUTER</span>
       <span *ngIf="formEntreprise.id">MODIFIER</span>
     </button>

@@ -4,6 +4,6 @@ import {Employes} from '../Employes/employes';
 
 export class Entreprise {
   public id: number = 0;
-  constructor(public nom?: string, public adresse?: Adresse, public nomGerant?: string, public services?: Array<Service>, public employes?: Array<Employes>, public entrepriseAssocies?: Array<Adresse>) {
+  constructor(public nom_societe?: string,  public entrepriseAssocies?: Array<Adresse>, public nom_gerant?: string, public services?: Array<Service>, public employes?: Array<Employes>) {
   }
 }
