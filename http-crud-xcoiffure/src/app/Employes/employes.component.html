@@ -1,3 +1,88 @@
-<p>
-  employes works!
-</p>
+<div class="container">
+  <h1>Employes</h1>
+  <h2>Liste des employes</h2>
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Filtrer la liste</div>
+    </div>
+
+    <input type="text" class="form-control" [(ngModel)]="filtre" placeholder="Filtres ..." />
+  </div>
+
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Prénom</th>
+      <th>Entreprise</th>
+      <th>Indisponibilite</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let employes of filtrer()">
+      <td>
+        <span><a [routerLink]="['/employes', employes.id]" routerLinkActive="active">{{ employes.nom }}</a></span>
+      </td>
+
+      <td>
+        <span>{{ employes.prenom }}</span>
+      </td>
+
+      <td>
+        <span>{{ employes.entreprise }}</span>
+      </td>
+
+      <td>
+        <span>{{ employes.indisponibilite }}</span>
+      </td>
+
+      <td>
+        <button (click)="editer(employes.id)" class="btn btn-warning">Editer</button>
+        <button (click)="supprimer(employes.id)" class="btn btn-danger">Supprimer</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="row mb-2 col-auto">
+    <button (click)="ajouter()" class="btn btn-success">AJOUTER</button>
+  </div>
+</div>
+
+<hr />
+
+<div class="container" *ngIf="formEmployes">
+
+  <h2>Ajouter / modifier un employes</h2>
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Nom de l'employes</div>
+    </div>
+
+    <input type="text" class="form-control" [(ngModel)]="formEmployes.nom" placeholder="Nom de l'employes" />
+  </div>
+
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Prénom du client</div>
+    </div>
+
+    <input type="text" class="form-control" [(ngModel)]="formClient.prenom" placeholder="Prénom du client" />
+  </div>
+
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">CA du client</div>
+    </div>
+
+    <input type="number" class="form-control" [(ngModel)]="formClient.ca" placeholder="CA du client" />
+  </div>
+
+  <div class="row mb-2 col-auto">
+    <button (click)="sauvegarder()" class="btn btn-success" [disabled]="!formClient.nom || !formClient.prenom">
+      <span *ngIf="!formClient.id">AJOUTER</span>
+      <span *ngIf="formClient.id">MODIFIER</span>
+    </button>
+  </div>
+</div>
