@@ -20,8 +20,6 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 import fr.xcoiffure.model.Adresse;
 import fr.xcoiffure.model.Client;
-import fr.xcoiffure.model.Employes;
-import fr.xcoiffure.model.Entreprise;
 import fr.xcoiffure.model.Rdv;
 import fr.xcoiffure.model.Views;
 import fr.xcoiffure.idao.IDAOAdresse;

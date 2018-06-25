@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import fr.xcoiffure.model.Adresse;
-import fr.xcoiffure.model.Employes;
 
 public interface IDAOAdresse extends JpaRepository<Adresse, Integer> {
 	
