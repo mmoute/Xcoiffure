@@ -31,8 +31,8 @@ export class EntrepriseComponent implements OnInit {
 
   public filtrer() {
     return this.entreprises.filter(e =>
-      e.nom.toLowerCase().indexOf(this.filtre.toLowerCase()) !== -1 ||
-      e.nomGerant.toLowerCase().indexOf(this.filtre.toLowerCase()) !== -1
+      e.nom_societe.toLowerCase().indexOf(this.filtre.toLowerCase()) !== -1 ||
+      e.nom_gerant.toLowerCase().indexOf(this.filtre.toLowerCase()) !== -1
     );
   }
 
