@@ -16,7 +16,7 @@ import {AdresseModule} from './Adresse/adresse.module';
 
 
 const routes: Routes = [
-  {path: 'connection', component: AccueilComponent},
+  {path: 'connexion', component: AccueilComponent},
   {path: '', redirectTo: 'accueil', pathMatch: 'full'}
 ];
 

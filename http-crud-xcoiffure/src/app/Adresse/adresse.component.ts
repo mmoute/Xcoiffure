@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Adresse} from './adresse';
 import {ApiAdresseService} from './api-adresse.service';
 
@@ -32,7 +32,7 @@ export class AdresseComponent implements OnInit {
 
   public filtrer() {
     return this.adresses.filter(a =>
-      a.rue.toLowerCase().indexOf(this.filtre.toLowerCase()) !== -1 ||
+      a.nomRue.toLowerCase().indexOf(this.filtre.toLowerCase()) !== -1 ||
       a.ville.toLowerCase().indexOf(this.filtre.toLowerCase()) !== -1
     );
   }

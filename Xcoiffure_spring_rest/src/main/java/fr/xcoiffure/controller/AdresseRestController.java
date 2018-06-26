@@ -1,5 +1,6 @@
 package fr.xcoiffure.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 import fr.xcoiffure.idao.IDAOAdresse;
 import fr.xcoiffure.model.Adresse;
+import fr.xcoiffure.model.Service;
 import fr.xcoiffure.model.Views;
 
 
@@ -44,6 +46,13 @@ public class AdresseRestController {
 //	public List<Adresse> listAdressesEntreprises() {
 //		return daoAdresse.findAllWithAdressesEntreprises();
 //	}
+	
+	@GetMapping("")
+    @ResponseBody
+    @JsonView(Views.ViewAdresse.class)
+    public List<Adresse> listAdresse() {
+        return daoAdresse.findAll();
+    }
 	
 	@GetMapping("/{id}")
 	@ResponseBody

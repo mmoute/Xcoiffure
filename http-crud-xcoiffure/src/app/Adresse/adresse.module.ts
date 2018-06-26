@@ -23,4 +23,7 @@ const routes: Routes = [
       ]
 
     })
-export class AdresseModule { }
+export class AdresseModule {
+
+
+    }
