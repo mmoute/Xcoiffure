@@ -36,7 +36,7 @@
       </td>
 
       <td>
-        <span>{{ service.entreprise }}</span>
+        <span>{{ service.entreprise.nom_societe }}</span>
       </td>
 
       <td>
@@ -84,7 +84,7 @@
       <div class="input-group-text">entreprises </div>
     </div>
 
-    <input type="number" class="form-control" [(ngModel)]="formService.entreprise" placeholder="les entreprises" />
+    <input type="number" class="form-control" [(ngModel)]="formService.entreprise.nom_societe" placeholder="les entreprises" />
   </div>
 
   <div class="row mb-2 col-auto">

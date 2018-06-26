@@ -45,7 +45,7 @@ public class Employes {
 	
 	@ManyToOne
 	@JoinColumn(name="EMP_ENTREPRISE_ID")
-//	@JsonView(Views.ViewEmployes.class)
+	@JsonView(Views.ViewEmployes.class)
 	private Entreprise entreprise;
 	
 	@OneToMany(mappedBy="employes")
