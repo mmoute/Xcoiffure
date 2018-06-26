@@ -6,7 +6,7 @@ import {FormsModule} from '@angular/forms';
 import {ApiServiceService} from './api-service.service';
 
 const routes: Routes = [
-  { path: 'client', component: ServiceComponent }
+  { path: 'service', component: ServiceComponent }
  ];
 
 @NgModule({
