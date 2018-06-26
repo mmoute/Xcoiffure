@@ -23,7 +23,7 @@
     <tbody>
     <tr *ngFor="let adresse of filtrer()">
       <td>
-        <span><a [routerLink]="['/adresse', adresse.id]" routerLinkActive="active">{{ adresse.rue }}</a></span>
+        <span><a [routerLink]="['/adresse', adresse.id]" routerLinkActive="active">{{ adresse.nomRue }}</a></span>
       </td>
 
       <td>
@@ -55,7 +55,7 @@
       <div class="input-group-text">Rue</div>
     </div>
 
-    <input type="text" class="form-control" [(ngModel)]="formAdresse.rue" placeholder="Rue" />
+    <input type="text" class="form-control" [(ngModel)]="formAdresse.nomRue" placeholder="Rue" />
   </div>
 
   <div class="input-group mb-2">
@@ -75,7 +75,7 @@
   </div>
 
   <div class="row mb-2 col-auto">
-    <button (click)="sauvegarder()" class="btn btn-success" [disabled]="!formAdresse.rue || !formAdresse.codePostal || !formAdresse.ville ">
+    <button (click)="sauvegarder()" class="btn btn-success" [disabled]="!formAdresse.nomRue || !formAdresse.codePostal || !formAdresse.ville ">
       <span *ngIf="!formAdresse.id">AJOUTER</span>
       <span *ngIf="formAdresse.id">MODIFIER</span>
     </button>
