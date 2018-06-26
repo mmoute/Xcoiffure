@@ -53,7 +53,7 @@ public class AdresseRestController {
     public List<Adresse> listAdresse() {
         return daoAdresse.findAll();
     }
-	
+		
 	@GetMapping("/{id}")
 	@ResponseBody
 	@JsonView(Views.ViewAdresse.class)

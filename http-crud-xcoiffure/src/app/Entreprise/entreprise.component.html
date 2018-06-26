@@ -14,7 +14,7 @@
     <thead>
     <tr>
       <th>Nom de l'entreprise</th>
-      <th>Id de l'adresse associée</th>
+<!--      <th>Adresse</th>-->
       <th>Nom du gérant</th>
       <th>Actions</th>
     </tr>
@@ -26,9 +26,9 @@
         <span><a [routerLink]="['/entreprise', entreprise.id]" routerLinkActive="active">{{ entreprise.nom_societe }}</a></span>
       </td>
 
-      <td>
+<!--     <td>
         <span>{{ entreprise.entrepriseAssocies }}</span>
-      </td>
+      </td>-->
 
       <td>
         <span>{{ entreprise.nom_gerant }}</span>
@@ -59,26 +59,31 @@
     <input type="text" class="form-control" [(ngModel)]="formEntreprise.nom_societe" placeholder="Nom de l'entreprise" />
   </div>
 
-  <div class="input-group mb-2">
+<!--  <div class="input-group mb-2">
     <div class="input-group-prepend">
-      <div class="input-group-text">Id de l'adresse associée</div>
+      <div class="input-group-text">Adresse</div>
     </div>
 
     <input type="text" class="form-control" [(ngModel)]="formEntreprise.entrepriseAssocies" placeholder="Id de l'adresse associée" />
-  </div>
+  </div>-->
+
 
   <div class="input-group mb-2">
     <div class="input-group-prepend">
       <div class="input-group-text">Nom du Gérant</div>
     </div>
 
-    <input type="number" class="form-control" [(ngModel)]="formEntreprise.nom_gerant" placeholder="Nom du Gérant" />
+    <input type="text" class="form-control" [(ngModel)]="formEntreprise.nom_gerant" placeholder="Nom du Gérant" />
   </div>
 
   <div class="row mb-2 col-auto">
-    <button (click)="sauvegarder()" class="btn btn-success" [disabled]="!formEntreprise.nom_societe || !formEntreprise.entrepriseAssocies || !formEntreprise.nom_gerant">
+    <button (click)="sauvegarder()" class="btn btn-success" [disabled]="!formEntreprise.nom_societe  || !formEntreprise.nom_gerant">
       <span *ngIf="!formEntreprise.id">AJOUTER</span>
       <span *ngIf="formEntreprise.id">MODIFIER</span>
     </button>
   </div>
 </div>
+
+
+<!--
+|| !formEntreprise.entrepriseAssocies -->
