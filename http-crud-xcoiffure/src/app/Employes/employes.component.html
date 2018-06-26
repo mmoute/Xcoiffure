@@ -77,7 +77,7 @@
       <div class="input-group-text">Entreprise</div>
     </div>
 
-    <input type="number" class="form-control" [(ngModel)]="formEmployes.entreprise" placeholder="Entreprise de l'employes" />
+    <input type="text" class="form-control" [(ngModel)]="formEmployes.entreprise.nom_societe" placeholder="Entreprise de l'employes" />
   </div>
 
   <div class="input-group mb-2">
@@ -89,7 +89,7 @@
   </div>
 
   <div class="row mb-2 col-auto">
-    <button (click)="sauvegarder()" class="btn btn-success" [disabled]="!formEmployes.nom || !formEmployes.entreprise || !formEmployes.prenom || !formEmployes.indisponibilite">
+    <button (click)="sauvegarder()" class="btn btn-success" [disabled]="!formEmployes.nom || !formEmployes.entreprise.nom_societe || !formEmployes.prenom || !formEmployes.indisponibilite">
       <span *ngIf="!formEmployes.id">AJOUTER</span>
       <span *ngIf="formEmployes.id">MODIFIER</span>
     </button>

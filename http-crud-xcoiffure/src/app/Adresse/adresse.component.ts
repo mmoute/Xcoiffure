@@ -3,7 +3,7 @@ import {Adresse} from './adresse';
 import {ApiAdresseService} from './api-adresse.service';
 
 @Component({
-  selector: 'app-rdv',
+  selector: 'app-adresse',
   templateUrl: './adresse.component.html',
   styleUrls: ['./adresse.component.css']
 })

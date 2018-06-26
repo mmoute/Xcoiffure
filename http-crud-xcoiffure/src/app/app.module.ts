@@ -12,6 +12,7 @@ import {ClientModule} from './Client/client.module';
 import {RdvModule} from './RDV/rdv.module';
 import {AccueilModule} from './Accueil/accueil.module';
 import {ConnexionComponent} from './connexion.component';
+import {AdresseModule} from './Adresse/adresse.module';
 
 
 const routes: Routes = [
@@ -26,7 +27,7 @@ const routes: Routes = [
   imports: [
     BrowserModule, FormsModule, RouterModule.forRoot(routes),
     HttpClientModule, ClientModule, EntrepriseModule,
-    RdvModule, ServiceModule, EmployesModule, AccueilModule
+    RdvModule, ServiceModule, EmployesModule, AccueilModule, AdresseModule
   ],
   providers: [],
   bootstrap: [AppComponent]

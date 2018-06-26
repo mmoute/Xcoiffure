@@ -5,9 +5,7 @@ import {HttpClient} from '@angular/common/http';
 import {Entreprise} from '../Entreprise/entreprise';
 import {Adresse} from './adresse';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ApiAdresseService {
 
   constructor(private appConfig: AppConfigService, private http: HttpClient) {

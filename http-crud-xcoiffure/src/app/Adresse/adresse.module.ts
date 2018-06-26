@@ -7,7 +7,7 @@ import {AdresseComponent} from './adresse.component';
 
 
 const routes: Routes = [
-  { path: 'client', component: AdresseComponent}
+  { path: 'adresse', component: AdresseComponent}
   ];
 
     @NgModule({
